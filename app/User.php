@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function run(){
+        factory(App\User::class, 50)->create()->each(function ($user) {
+            $user->posts()->save(factory(App\Post::class)->make());
+        });
+    }
 }
