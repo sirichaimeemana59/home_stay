@@ -58,8 +58,24 @@
 
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
+                    <li class="dropdown messages-menu">
+                        <a href="{!! url('/locale/th') !!}">
+                            {{--                            <i class="fa fa-envelope-o"></i>--}}
+                            <span class="">Thai</span>
+                        </a>
+                    </li>
+
+                    <li class="dropdown messages-menu">
+                        <a href="{!! url('/locale/en') !!}">
+                            {{--                            <i class="fa fa-envelope-o"></i>--}}
+                            <span class="">English</span>
+                        </a>
+                    </li>
                     <!-- Messages: style can be found in dropdown.less-->
                     <li class="dropdown messages-menu">
+
+
+                        {{--                        --}}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-envelope-o"></i>
                             <span class="label label-success">4</span>
@@ -1270,6 +1286,8 @@
 <script src="{!! url('/') !!}/index_admin/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{!! url('/') !!}/index_admin/dist/js/demo.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     @yield('script')
 </script>

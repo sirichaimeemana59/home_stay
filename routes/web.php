@@ -20,6 +20,11 @@ Route::get('/home', function () {
     return view('home_stay.list_home_stay');
 });
 
+Route::get('/login_success','Homeuser/HomeuserController@index');
 
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+//Language
+Route::get('locale/{locale?}',function($locale){
+    Session::put('locale',$locale);
+    return redirect()->back();
+});
