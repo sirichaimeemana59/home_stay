@@ -12,15 +12,15 @@ class Property_Home_Stay extends Model
     protected $primaryKey = 'id';
 
     public function join_province(){
-        return $this->hasOne('App\Province','province_id','id');
+        return $this->hasOne('App\Province','id','province_id');
     }
 
-    public function join_sub_distric(){
-        return $this->hasOne('App\Subdistricts','sub_dis','id');
+    public function join_Subdistricts(){
+        return $this->hasOne('App\Subdistricts','id','sub_dis');
     }
 
-    public function join_distric(){
-        return$this->hasOne('App\Districts','distric_id','id');
+    public function join_Districts(){
+        return$this->hasOne('App\Districts','id','distric_id');
     }
 }
 

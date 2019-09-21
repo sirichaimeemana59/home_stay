@@ -27,16 +27,16 @@
             </div>
         @endif
     </div>
-    <div class="w3-hide-small">
+    <div class="">
         <div class="table-responsive table-striped">
             <table cellspacing="0" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                     <th>{!! trans('messages.number') !!}</th>
-                    <th>{!! trans('messages.pet.photo') !!}</th>
-                    <th>{!! trans('messages.pet.name') !!}</th>
-                    <th>{!! trans('messages.pet.age') !!}</th>
-                    <th>{!! trans('messages.pet.user') !!}</th>
+                    <th>{!! trans('messages.property.name') !!}</th>
+                    <th>{!! trans('messages.property.mail') !!}</th>
+                    <th>{!! trans('messages.property.owner') !!}</th>
+                    <th>{!! trans('messages.property.phone') !!}</th>
                     <th>{!! trans('messages.action') !!}</th>
                 </tr>
                 </thead>
@@ -45,60 +45,32 @@
                     @foreach($p_row as $key => $row)
                         <tr>
                             <td>{!! $key+1 !!}</td>
-                            <td><img src="{!! asset($row->photo) !!}" alt="" width="25%"></td>
                             <td>{!! $row{'name_'.Session::get('locale')} !!}</td>
-                            <td>@if(!empty($row->age)) {!! $row->age !!} @else - @endif </td>
-                            <td>@if(!empty($row->user_id)) {!! $row->user_id !!} @else - @endif</td>
+                            <td>{!! $row->email !!}</td>
+                            <td>{!! $row->owner !!} </td>
+                            <td>{!! $row->phone !!}</td>
                             <td>
-                                <button class="btn btn-primary mt-2 mt-xl-0 text-right view-store" data-id="{!! $row->id !!}"><i class="mdi mdi-eye"></i></button>
-                                <button class="btn btn-warning mt-2 mt-xl-0 text-right edit-store" data-id="{!! $row->id !!}"><i class="mdi mdi-tooltip-edit"></i></button>
-                                {{--<a href="{!! url('/employee/pet/edit/'.$row->id) !!}"><button class="btn btn-warning mt-2 mt-xl-0 text-right"><i class="mdi mdi-tooltip-edit"></i></button></a>--}}
-                                <button class="btn btn-danger mt-2 mt-xl-0 text-right delete-store" data-id="{!! $row->id !!}"><i class="mdi mdi-delete-sweep"></i></button>
-                            </td>
-                        </tr>
-                    @endforeach
-                @else
-                    <tr>
-                        <td>{!! trans('messages.no-data') !!}</td>
-                    </tr>
-
-                @endif
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="hide">
-        <div class="table-responsive table-striped">
-            <table cellspacing="0" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                    <th>{!! trans('messages.pet.photo') !!}</th>
-                    <th>{!! trans('messages.pet.name') !!}</th>
-                    <th>{!! trans('messages.pet.age') !!}</th>
-                    <th>{!! trans('messages.action') !!}</th>
-                </tr>
-                </thead>
-                <tbody>
-                @if(!empty($p_row))
-                    @foreach($p_row as $key => $row)
-                        <tr>
-                            <td><img src="{!! asset($row->photo) !!}" alt="" width="25%"></td>
-                            <td>{!! $row{'name_'.Session::get('locale')} !!}</td>
-                            <td>@if(!empty($row->age)) {!! $row->age !!} @else - @endif </td>
-                            <td>
-                                <div class="dropdown">
-                                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown">{!! trans('messages.action') !!}
-                                        <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li class="#"><a href="#" class="view-store" data-id="{!! $row->id !!}">{!! trans('messages.view') !!}</a></li>
-                                        <li><a href="#" class="edit-store" data-id="{!! $row->id !!}">{!! trans('messages.edit') !!}</a></li>
-                                        <li><a href="#" class="delete-store" data-id="{!! $row->id !!}">{!! trans('messages.delete') !!}</a></li>
+                                <div class="btn-group left-dropdown">
+                                    <button type="button" class="btn btn-success" data-toggle="dropdown">เลือกการจัดการ</button>
+                                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="true"> <span class="caret"></span> </button>
+                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                        <li><a href="#" class="view" data-id="{!! $row->id !!}">
+                                                <i class="fa fa-eye"></i> {!! trans('messages.view') !!}
+                                            </a>
+                                        <li><a href="{!! url('super_admin/list_property/edit/'.$row->id) !!}" data-id="{!! $row->id !!}">
+                                                <i class="fa fa-edit"></i> {!! trans('messages.edit') !!}
+                                            </a>
+                                        </li>
+                                        <li><a href="#" data-id="{!! $row->id !!}" class="delete-store">
+                                                <i class="fa fa-trash-o"></i> {!! trans('messages.delete') !!}
+                                            </a>
+                                        </li>
+                                        <li><a href="#" data-id="{!! $row->id !!}">
+                                                <i class="fa fa-unlock-alt"></i> {!! trans('messages.login_admin') !!}
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
-                                {{--<button class="btn btn-primary mt-2 mt-xl-0 text-right view-store btn-sm" data-id="{!! $row->id !!}"><i class="mdi mdi-eye"></i></button>--}}
-                                {{--<button class="btn btn-warning mt-2 mt-xl-0 text-right edit-store btn-sm" data-id="{!! $row->id !!}"><i class="mdi mdi-tooltip-edit"></i></button>--}}
-                                {{--<a href="{!! url('/employee/pet/edit/'.$row->id) !!}"><button class="btn btn-warning mt-2 mt-xl-0 text-right"><i class="mdi mdi-tooltip-edit"></i></button></a>--}}
-                                {{--<button class="btn btn-danger mt-2 mt-xl-0 text-right delete-store btn-sm" data-id="{!! $row->id !!}"><i class="mdi mdi-delete-sweep"></i></button>--}}
                             </td>
                         </tr>
                     @endforeach
@@ -112,7 +84,7 @@
             </table>
         </div>
     </div>
-    {{--</div>--}}
+
     <br>
     <div class="row">
         <div class="col-md-6">

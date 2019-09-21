@@ -1,5 +1,13 @@
 <ul class="sidebar-menu" data-widget="tree">
     <li class="header">MAIN NAVIGATION</li>
+    <li class="active">
+        <a href="{!! url('/super_admin/dashboard') !!}">
+            <i class="fa fa-th"></i> <span>Dashboard</span>
+            {{--            <span class="pull-right-container">--}}
+            {{--              <small class="label pull-right bg-green">new</small>--}}
+            {{--            </span>--}}
+        </a>
+    </li>
     <li>
         <a href="{!! url('/super_admin/list_property') !!}">
             <i class="fa fa-th"></i> <span>{!! trans('messages.property.property') !!}</span>

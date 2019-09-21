@@ -28,6 +28,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view ('home_user.home_user');
+        Session::put('locale','en');
+        //return view ('home_user.home_user');
+        if( Auth::user()->role == 1){
+            Redirect::to('/super_admin/dashboard')->send();
+        }
     }
 }

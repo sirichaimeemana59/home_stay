@@ -11,7 +11,7 @@
                     <form method="POST" id="search-form" action="#" accept-charset="UTF-8" class="form-horizontal">
                         <div class="row">
                             <div class="col-sm-3 block-input">
-                                <input class="form-control" size="25" placeholder="{!! trans('messages.pet.name') !!}" name="name">
+                                <input class="form-control" size="25" placeholder="{!! trans('messages.property.name') !!}" name="name">
                             </div>
 
                             {{--<div class="col-sm-3 block-input">--}}
@@ -21,8 +21,8 @@
 
                         <div class="row">
                             <div class="col-sm-12 text-right">
-                                <button type="reset" class="btn btn-white reset-s-btn">{!! trans('messages.reset') !!}</button>
-                                <button type="button" class="btn btn-secondary search-store">{!! trans('messages.search') !!}</button>
+                                <button type="button" class="btn btn-warning reset-s-btn"> {!! trans('messages.close') !!}</button>
+                                <button type="button" class="btn btn-primary search-store"> {!! trans('messages.search') !!}</button>
                             </div>
                         </div>
                     </form>
@@ -31,15 +31,15 @@
         </div>
     </div>
 
-    <div class="nav-tabs-custom">
+    <div class="nav-tabs-custom panel-body">
         <div class="row" style="margin: 5px;">
             <div class="col-sm-12 text-right">
                 <button class="btn btn-primary mt-2 mt-xl-0 text-right add-property"><i class="fa fa-plus-circle"></i>  {!! trans('messages.property.add') !!}</button>
                 <a href="#" target="_blank"><button class="btn btn-success mt-2 mt-xl-0 text-right"><i class="fa fa-file-text"></i>  {!! trans('messages.download') !!}</button></a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12">
+        <div class="row panel-body">
+            <div class="col-lg-12" id="landing-subject-list">
                 @include('property.list_property_element')
             </div>
         </div>
@@ -48,7 +48,7 @@
     <div class="modal fade" id="add_property" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="background-color: #9BA2AB;">
                     <h4 class="modal-title">{!! trans('messages.property.property') !!}</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
@@ -82,7 +82,7 @@
                                 <div class="form-group row">
                                     <lable class="col-sm-2 control-label">{!! trans('messages.property.mail') !!}</lable>
                                     <div class="col-sm-4">
-                                        {!! Form::email('mail',null,array('class'=>'form-control','placeholder'=>trans('messages.property.mail'),'required')) !!}
+                                        {!! Form::email('email',null,array('class'=>'form-control','placeholder'=>trans('messages.property.mail'),'required')) !!}
                                     </div>
 
                                     <lable class="col-sm-2 control-label">{!! trans('messages.property.location') !!}</lable>
@@ -93,23 +93,23 @@
                                 <div class="form-group row">
                                     <lable class="col-sm-2 control-label">{!! trans('messages.property.province') !!}</lable>
                                     <div class="col-sm-4">
-                                        {!! Form::text('province_id',null,array('class'=>'form-control','placeholder'=>trans('messages.property.province'),'required')) !!}
+                                        {!! Form::select('province_id',$provinces,null,array('class'=>'form-control province')) !!}
                                     </div>
 
                                     <lable class="col-sm-2 control-label">{!! trans('messages.property.distric') !!}</lable>
                                     <div class="col-sm-4">
-                                        {!! Form::text('distric_id',null,array('class'=>'form-control','placeholder'=>trans('messages.property.distric'),'required')) !!}
+                                        {!! Form::select('distric_id',$districts,null,array('class'=>'form-control district')) !!}
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <lable class="col-sm-2 control-label">{!! trans('messages.property.sub_dis') !!}</lable>
                                     <div class="col-sm-4">
-                                        {!! Form::text('sub_dis',null,array('class'=>'form-control','placeholder'=>trans('messages.property.sub_dis'),'required')) !!}
+                                        {!! Form::select('sub_dis',$subdistricts,null,array('class'=>'form-control subdistricts')) !!}
                                     </div>
 
                                     <lable class="col-sm-2 control-label">{!! trans('messages.property.code') !!}</lable>
                                     <div class="col-sm-4">
-                                        {!! Form::text('code',null,array('class'=>'form-control','placeholder'=>trans('messages.property.code'),'required')) !!}
+                                        {!! Form::text('code',null,array('class'=>'form-control postcode','maxlength' => 10, 'placeholder'=> trans('messages.AboutProp.postcode'))) !!}
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -138,6 +138,60 @@
 
         </div>
     </div>
+
+    <!-- Modal view store-->
+    <div class="modal fade" id="view-store" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #9BA2AB;">
+                    <h4 class="modal-title" style="color: #bbbfc3;">{!! trans('messages.property.property') !!}</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="lead-content" class="form">
+
+                            </div>
+                        </div>
+                    </div>
+                    <span class="v-loading">กำลังค้นหาข้อมูล...</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- End Modal view store-->
+
+    <!-- Modal view store-->
+    <div class="modal fade" id="edit-store" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #9BA2AB;">
+                    <h4 class="modal-title" style="color: #bbbfc3;">{!! trans('messages.property.property') !!}</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="lead-content1" class="form">
+
+                            </div>
+                        </div>
+                    </div>
+                    <span class="v-loading1">กำลังค้นหาข้อมูล...</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- End Modal view store-->
 @endsection
 
 @section('script')
@@ -149,28 +203,291 @@
     <script type="text/javascript" src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="{{url('/')}}/js/jquery-validate/jquery.validate.min.js"></script>
 
-    <script>
-        $('body').on('click','.add-property',function(){
-            $('#add_property').modal('show');
-        });
+    <script type="text/javascript" src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-        $('#add-store-btn').on('click',function () {
-            if($('.create-store-form').valid()) {
-                $(this).attr('disabled','disabled').prepend('<i class="fa-spin fa-spinner" style="color: red;"></i> ');
-                $('.create-store-form').submit();
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $('body').on('click', '.add-property', function () {
+                $('#add_property').modal('show');
+            });
+
+            $('#add-store-btn').on('click', function () {
+                if ($('.create-store-form').valid()) {
+                    $(this).attr('disabled', 'disabled').prepend('<i class="fa-spin fa-spinner" style="color: red;"></i> ');
+                    $('.create-store-form').submit();
+                }
+            });
+
+            $('.search-store').on('click',function () {
+                //alert('aa');
+                propertyPage (1);
+            });
+
+            $('body').on('click','.p-paginate-link', function (e){
+                e.preventDefault();
+                propertyPage($(this).attr('data-page'));
+                //alert('aa');
+            });
+
+            $('body').on('change','.p-paginate-select', function (e){
+                e.preventDefault();
+                propertyPage($(this).val());
+            });
+
+            $('.reset-s-btn').on('click',function () {
+                $(this).closest('form').find("input").val("");
+                $(this).closest('form').find("select option:selected").removeAttr('selected');
+                //propertyPageSale (1);
+                window.location.href =$('#root-url').val()+'/super_admin/list_property';
+            });
+            function propertyPage (page) {
+                // $('.search-store').on('click', function () {
+                var data = $('#search-form').serialize()+'&page='+page;
+                //alert('aa');
+                //console.log(data);
+                $('#landing-subject-list').css('opacity', '0.6');
+                $.ajax({
+                    url: $('#root-url').val() + '/super_admin/list_property',
+                    method: 'post',
+                    dataType: 'html',
+                    data: data,
+                    success: function (e) {
+                        $('#landing-subject-list').css('opacity', '1').html(e);
+                    }, error: function () {
+                        console.log('Error Search Data Store');
+                    }
+                });
+                // });
             }
-        });
 
-        $(".num").on("keypress" , function (e) {
+            $('body').on('click','.view',function(){
+               var id = $(this).data('id');
+                $('#view-store').modal('show');
+                $('#lead-content').empty();
+                $('.v-loading').show();
+               $.ajax({
+                  url:$('#root-url').val()+'/super_admin/list_property/view',
+                  method:'post',
+                  dataType:'html',
+                  data:({'id':id}),
+                  success:function(e){
+                      //console.log(e);
+                      $('#lead-content').html(e);
+                      $('.v-loading').hide();
+                  } ,error:function(){
+                      console.log('Error View Property');
+                   }
+               });
+            });
 
-            var code = e.keyCode ? e.keyCode : e.which;
+            $('body').on('click','.edit',function(){
+                var id = $(this).data('id');
+                $('#edit-store').modal('show');
+                $('#lead-content1').empty();
+                $('.v-loading1').show();
+                $.ajax({
+                    url:$('#root-url').val()+'/super_admin/list_property/edit',
+                    method:'post',
+                    dataType:'html',
+                    data:({'id':id}),
+                    success:function(e){
+                        //console.log(e);
+                        $('#lead-content1').html(e);
+                        $('.v-loading1').hide();
+                    } ,error:function(){
+                        console.log('Error View Property');
+                    }
+                });
+            });
 
-            if(code > 57){
-                return false;
-            }else if(code < 48 && code != 8){
-                return false;
+            $('body').on('click','.delete-store',function(){
+                var id = $(this).data('id');
+                swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this imaginary file!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                }).then((willDelete)=> {
+                    if (willDelete) {
+                        setTimeout(function() {
+                            $.post($('#root-url').val()+"/super_admin/list_property/delete", {
+                                id: id
+                            }, function(e) {
+                                swal("Poof! Your imaginary file has been deleted!", {
+                                    icon: "success",
+                                }).then(function(){
+                                    window.location.href =$('#root-url').val()+'/super_admin/list_property'
+                                });
+                            });
+                        }, 50);
+                    } else {
+                        swal("Your imaginary file is safe!");
+                    }
+                });
+            });
+
+            $('body').on("keypress",".num", function (e) {
+
+                var code = e.keyCode ? e.keyCode : e.which;
+
+                if (code > 57) {
+                    return false;
+                } else if (code < 48 && code != 8) {
+                    return false;
+                }
+
+            });
+
+            $('body').on('change','.province',function(){
+                $('.district').attr("disabled", false);
+                var id;
+                id = $(this).val();
+                $.ajax({
+                    url : $('#root-url').val()+"/root/admin/select/district",
+                    method : 'post',
+                    dataType: 'html',
+                    data : ({'id':id}),
+                    success: function (e) {
+                        $(".district").html('');
+                        $(".district").append("<option value=''>อำเภอ/เขต</option>");
+                        $.each($.parseJSON(e), function(i, val){
+                            $(".district").append("<option value='"+val.id+"'>"+val.name_th+" "+val.name_en+"</option>");
+                        });
+                    },
+                    error : function () {
+
+
+                    }
+                })
+            })
+
+            function SelectDistrict(id){
+                $('.subdistricts').attr("disabled", false);
+                var id = id;
+                //console.log(id);
+                $.ajax({
+                    url : $('#root-url').val()+"/root/admin/select/subdistrict",
+                    method : 'post',
+                    dataType : 'html',
+                    data : ({'id':id}),
+                    success : function(e){
+                        $('.subdistricts').html('');
+                        $.each($.parseJSON(e),function(i,val){
+                            $('.subdistricts').append("<option value='"+val.id+"'>"+val.name_th+" "+val.name_en+"</option>");
+                            $('.postcode').val(val.zip_code);
+                        });
+
+                    },error : function(){
+
+                    }
+                })
             }
 
+            $('body').ready(function(){
+                var id = $('.property_id').val();
+                var dis = $('.distric_id').val();
+                var subdis = $('.sub_dis').val();
+                var select;
+                //console.log(dis);
+                $.ajax({
+                    url : $('#root-url').val()+"/root/admin/select/district/edit",
+                    method : 'post',
+                    dataType : 'html',
+                    data : ({'id':id}),
+                    success : function(e){
+                        $('.district').html('');
+                        $('.district').append("<option value=''>ตำบล</option>");
+                        $.each($.parseJSON(e),function(i,val){
+                            //console.log(e);
+                            if(val.id == dis){
+                                select = "selected";
+                                $('.district').append("<option value='"+val.id+"' selected='"+select+"'>"+val.name_th+" "+val.name_en+"</option>");
+                            }else {
+                                select = "";
+                                $('.district').append("<option value='"+val.id+"'>"+val.name_th+" "+val.name_en+"</option>");
+                            }
+                            //console.log(select);
+                            $('.postcode').val(val.zip_code);
+                            //console.log(val.id);
+                        });
+                    },error : function(){
+                        console.log('aa');
+                    }
+                })
+                ////////////////////////////////
+                $.ajax({
+                    url : $('#root-url').val()+"/root/admin/select/editSubDis",
+                    method : 'post',
+                    dataType : 'html',
+                    data : ({'id':id}),
+                    success : function(e){
+                        $('.subdistricts').html('');
+                        $('.subdistricts').append("<option value=''>ตำบล</option>");
+                        $.each($.parseJSON(e),function(i,val){
+                            if(val.id == subdis){
+                                select = "selected";
+                                $('.subdistricts').append("<option value='"+val.id+"' selected='"+select+"'>"+val.name_th+" "+val.name_en+"</option>");
+                            }else {
+                                select = "";
+                                $('.subdistricts').append("<option value='"+val.id+"'>"+val.name_th+" "+val.name_en+"</option>");
+                            }
+                            $('.postcode').val(val.zip_code);
+                        });
+                    },error : function(){
+                        console.log('aa');
+                    }
+                })
+            });
+
+            $('body').on('change','.district',function(){
+                $('.subdistricts').attr("disabled", false);
+                var id = $(this).val();
+                console.log(id);
+                $.ajax({
+                    url : $('#root-url').val()+"/root/admin/select/subdistrict",
+                    method : 'post',
+                    dataType : 'html',
+                    data : ({'id':id}),
+                    success : function(e){
+                        //console.log(e);
+                        $('.subdistricts').html('');
+                        $('.subdistricts').append("<option value=''>ตำบล</option>");
+                        $.each($.parseJSON(e),function(i,val){
+                            $('.subdistricts').append("<option value='"+val.id+"'>"+val.name_th+" "+val.name_en+"</option>");
+                            $('.postcode').val(val.zip_code);
+                        });
+                    },error : function(){
+                        console.log('aa');
+                    }
+                })
+            })
+
+            $('body').on('change','.subdistricts',function(){
+                var id = $(this).val();
+                //console.log(id);
+                $.ajax({
+                    url : $('#root-url').val()+"/root/admin/select/zip_code",
+                    method : 'post',
+                    dataType : 'html',
+                    data : ({'id':id}),
+                    success : function(e){
+                        $.each($.parseJSON(e),function(i,val){
+                            $('.postcode').val(val.zip_code);
+                        });
+                        //console.log(e);
+
+                    },error : function(){
+                        //console.log('aa');
+                    }
+                })
+            })
         });
     </script>
 @endsection
