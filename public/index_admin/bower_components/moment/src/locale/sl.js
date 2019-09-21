@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Slovenian [sl]
 //! author : Robert Sedovšek : https://github.com/sedovsek
 

@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Arabic (Morocco) [ar-ma]
 //! author : ElFadili Yassine : https://github.com/ElFadiliY
 //! author : Abdel Said : https://github.com/abdelsaid

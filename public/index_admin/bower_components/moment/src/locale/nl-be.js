@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Dutch (Belgium) [nl-be]
 //! author : Joris Röling : https://github.com/jorisroling
 //! author : Jacob Middag : https://github.com/middagj

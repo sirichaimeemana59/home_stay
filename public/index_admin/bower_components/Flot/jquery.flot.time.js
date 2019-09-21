@@ -12,7 +12,7 @@ API.txt for details.
 
 	var options = {
 		xaxis: {
-			timezone: null,		// "browser" for local to the client or timezone for timezone-js
+			timezone: null,		// "browser" for local to the client or timezone for timezone-js_
 			timeformat: null,	// format string to use
 			twelveHourClock: false,	// 12 or 24 time in time mode
 			monthNames: null	// list of names of months
@@ -149,7 +149,7 @@ API.txt for details.
 			return makeUtcWrapper(new Date(ts));
 		} else if (typeof timezoneJS != "undefined" && typeof timezoneJS.Date != "undefined") {
 			var d = new timezoneJS.Date();
-			// timezone-js is fickle, so be sure to set the time zone before
+			// timezone-js_ is fickle, so be sure to set the time zone before
 			// setting the time.
 			d.setTimezone(opts.timezone);
 			d.setTime(ts);
@@ -158,7 +158,7 @@ API.txt for details.
 			return makeUtcWrapper(new Date(ts));
 		}
 	}
-	
+
 	// map of app. size of time units in milliseconds
 
 	var timeUnitSize = {
@@ -176,9 +176,9 @@ API.txt for details.
 
 	var baseSpec = [
 		[1, "second"], [2, "second"], [5, "second"], [10, "second"],
-		[30, "second"], 
+		[30, "second"],
 		[1, "minute"], [2, "minute"], [5, "minute"], [10, "minute"],
-		[30, "minute"], 
+		[30, "minute"],
 		[1, "hour"], [2, "hour"], [4, "hour"],
 		[8, "hour"], [12, "hour"],
 		[1, "day"], [2, "day"], [3, "day"],

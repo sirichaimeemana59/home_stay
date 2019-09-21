@@ -7,7 +7,7 @@ window._ = require('lodash');
  */
 
 try {
-    window.Popper = require('popper.js').default;
+    window.Popper = require('popper.js_').default;
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
@@ -45,7 +45,7 @@ if (token) {
 
 // import Echo from 'laravel-echo'
 
-// window.Pusher = require('pusher-js');
+// window.Pusher = require('pusher-js_');
 
 // window.Echo = new Echo({
 //     broadcaster: 'pusher',

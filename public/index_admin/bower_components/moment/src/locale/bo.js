@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Tibetan [bo]
 //! author : Thupten N. Chakrishar : https://github.com/vajradog
 

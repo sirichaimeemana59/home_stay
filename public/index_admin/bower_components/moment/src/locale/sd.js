@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Sindhi [sd]
 //! author : Narain Sagar : https://github.com/narainsagar
 

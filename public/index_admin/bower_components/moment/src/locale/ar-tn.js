@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale  :  Arabic (Tunisia) [ar-tn]
 //! author : Nader Toukabri : https://github.com/naderio
 

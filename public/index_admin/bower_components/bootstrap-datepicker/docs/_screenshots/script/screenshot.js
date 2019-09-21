@@ -1,5 +1,5 @@
 /* jshint phantom:true, devel:true */
-/* Usage: phantomjs screenshot.js in.html out.png */
+/* Usage: phantomjs screenshot.js_ in.html out.png */
 
 var sys = require('system'),
     page = new WebPage();

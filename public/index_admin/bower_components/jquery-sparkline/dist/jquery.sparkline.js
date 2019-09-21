@@ -1,6 +1,6 @@
 /**
 *
-* jquery.sparkline.js
+* jquery.sparkline.js_
 *
 * v2.1.3
 * (c) Splunk, Inc

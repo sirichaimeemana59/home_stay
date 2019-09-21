@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# visual_specs.js creates output in output/XXX.png
-phantomjs visual_specs.js
+# visual_specs.js_ creates output in output/XXX.png
+phantomjs visual_specs.js_
 
 # clear out old diffs
 mkdir -p diff

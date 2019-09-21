@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Galician [gl]
 //! author : Juan G. Hurtado : https://github.com/juanghurtado
 

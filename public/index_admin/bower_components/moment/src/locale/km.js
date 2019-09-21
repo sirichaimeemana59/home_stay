@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Cambodian [km]
 //! author : Kruy Vanna : https://github.com/kruyvanna
 

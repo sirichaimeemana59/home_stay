@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Burmese [my]
 //! author : Squar team, mysquar.com
 //! author : David Rossellat : https://github.com/gholadr

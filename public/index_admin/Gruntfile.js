@@ -11,9 +11,9 @@ module.exports = function (grunt) { // jshint ignore:line
         tasks: ['less:development', 'less:production', 'replace', 'notify:less']
       },
       js   : {
-        // Compile js files upon saving
-        files: ['build/js/*.js'],
-        tasks: ['js', 'notify:js']
+        // Compile js_ files upon saving
+        files: ['build/js_/*.js_'],
+        tasks: ['js', 'notify:js_']
       },
       skins: {
         // Compile any skin less files upon saving
@@ -109,7 +109,7 @@ module.exports = function (grunt) { // jshint ignore:line
       }
     },
 
-    // Uglify task info. Compress the js files.
+    // Uglify task info. Compress the js_ files.
     uglify: {
       options   : {
         mangle : true,
@@ -119,7 +119,7 @@ module.exports = function (grunt) { // jshint ignore:line
       },
       production: {
         files: {
-          'dist/js/adminlte.min.js': ['dist/js/adminlte.js']
+          'dist/js/adminlte.min.js': ['dist/js_/adminlte.js_']
         }
       }
     },
@@ -128,7 +128,7 @@ module.exports = function (grunt) { // jshint ignore:line
     concat: {
       options: {
         separator: '\n\n',
-        banner   : '/*! AdminLTE app.js\n'
+        banner   : '/*! AdminLTE app.js_\n'
         + '* ================\n'
         + '* Main JS application file for AdminLTE v2. This file\n'
         + '* should be included in all pages. It controls some layout\n'
@@ -147,16 +147,16 @@ module.exports = function (grunt) { // jshint ignore:line
       },
       dist   : {
         src : [
-          'build/js/BoxRefresh.js',
-          'build/js/BoxWidget.js',
-          'build/js/ControlSidebar.js',
-          'build/js/DirectChat.js',
-          'build/js/PushMenu.js',
-          'build/js/TodoList.js',
-          'build/js/Tree.js',
-          'build/js/Layout.js',
+          'build/js_/BoxRefresh.js_',
+          'build/js_/BoxWidget.js_',
+          'build/js_/ControlSidebar.js_',
+          'build/js_/DirectChat.js_',
+          'build/js_/PushMenu.js_',
+          'build/js_/TodoList.js_',
+          'build/js_/Tree.js_',
+          'build/js_/Layout.js_',
         ],
-        dest: 'dist/js/adminlte.js'
+        dest: 'dist/js_/adminlte.js_'
       }
     },
 
@@ -215,28 +215,28 @@ module.exports = function (grunt) { // jshint ignore:line
     // Validate JS code
     jshint: {
       options: {
-        jshintrc: 'build/js/.jshintrc'
+        jshintrc: 'build/js_/.jshintrc'
       },
       grunt  : {
         options: {
           jshintrc: 'build/grunt/.jshintrc'
         },
-        src    : 'Gruntfile.js'
+        src    : 'Gruntfile.js_'
       },
       core   : {
-        src: 'build/js/*.js'
+        src: 'build/js_/*.js_'
       },
       demo   : {
-        src: 'dist/js/demo.js'
+        src: 'dist/js_/demo.js_'
       },
       pages  : {
-        src: 'dist/js/pages/*.js'
+        src: 'dist/js_/pages/*.js_'
       }
     },
 
     jscs: {
       options: {
-        config: 'build/js/.jscsrc'
+        config: 'build/js_/.jscsrc'
       },
       core   : {
         src: '<%= jshint.core.src %>'

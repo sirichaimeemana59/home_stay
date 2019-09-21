@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 
 ;(function (global, factory) {
    typeof exports === 'object' && typeof module !== 'undefined'

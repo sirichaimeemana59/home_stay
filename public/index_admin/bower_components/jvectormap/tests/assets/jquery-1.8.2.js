@@ -2,7 +2,7 @@
  * jQuery JavaScript Library v1.8.2
  * http://jquery.com/
  *
- * Includes Sizzle.js
+ * Includes Sizzle.js_
  * http://sizzlejs.com/
  *
  * Copyright 2012 jQuery Foundation and other contributors
@@ -411,7 +411,7 @@ jQuery.extend({
 		}
 	},
 
-	// See test/unit/core.js for details concerning isFunction.
+	// See test/unit/core.js_ for details concerning isFunction.
 	// Since version 1.3, DOM methods and functions like alert
 	// aren't supported. They return false on IE (#2968).
 	isFunction: function( obj ) {
@@ -1455,7 +1455,7 @@ jQuery.support = (function() {
 		support.doesNotIncludeMarginInBodyOffset = ( body.offsetTop !== 1 );
 
 		// NOTE: To any future maintainer, we've window.getComputedStyle
-		// because jsdom on node.js will break without it.
+		// because jsdom on node.js_ will break without it.
 		if ( window.getComputedStyle ) {
 			support.pixelPosition = ( window.getComputedStyle( div, null ) || {} ).top !== "1%";
 			support.boxSizingReliable = ( window.getComputedStyle( div, null ) || { width: "4px" } ).width === "4px";
@@ -6805,7 +6805,7 @@ jQuery.extend({
 });
 
 // NOTE: To any future maintainer, we've window.getComputedStyle
-// because jsdom on node.js will break without it.
+// because jsdom on node.js_ will break without it.
 if ( window.getComputedStyle ) {
 	curCSS = function( elem, name ) {
 		var ret, width, minWidth, maxWidth,
@@ -7281,7 +7281,7 @@ var
 	_load = jQuery.fn.load,
 
 	/* Prefilters
-	 * 1) They are useful to introduce custom dataTypes (see ajax/jsonp.js for an example)
+	 * 1) They are useful to introduce custom dataTypes (see ajax/jsonp.js_ for an example)
 	 * 2) These are called:
 	 *    - BEFORE asking for a transport
 	 *    - AFTER param serialization (s.data is a string if s.processData is true)

@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Uzbek [uz]
 //! author : Sardor Muminov : https://github.com/muminoff
 

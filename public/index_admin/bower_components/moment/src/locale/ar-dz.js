@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Arabic (Algeria) [ar-dz]
 //! author : Noureddine LOUAHEDJ : https://github.com/noureddineme
 

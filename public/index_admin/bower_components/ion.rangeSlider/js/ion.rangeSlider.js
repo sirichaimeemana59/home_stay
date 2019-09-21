@@ -341,7 +341,7 @@
         }
 
 
-        // config from data-attributes extends js config
+        // config from data-attributes extends js_ config
         config_from_data = {
             skin: $inp.data("skin"),
             type: $inp.data("type"),
@@ -429,7 +429,7 @@
 
 
 
-        // js config extends default config
+        // js_ config extends default config
         $.extend(config, options);
 
 
@@ -505,7 +505,7 @@
          * Appends slider template to a DOM
          */
         append: function () {
-            var container_html = '<span class="irs irs--' + this.options.skin + ' js-irs-' + this.plugin_count + ' ' + this.options.extra_classes + '"></span>';
+            var container_html = '<span class="irs irs--' + this.options.skin + ' js_-irs-' + this.plugin_count + ' ' + this.options.extra_classes + '"></span>';
             this.$cache.input.before(container_html);
             this.$cache.input.prop("readonly", true);
             this.$cache.cont = this.$cache.input.prev();
@@ -2245,7 +2245,7 @@
                     result = this._prettify(result);
                 }
 
-                html += '<span class="irs-grid-text js-grid-text-' + i + '" style="left: ' + big_w + '%">' + result + '</span>';
+                html += '<span class="irs-grid-text js_-grid-text-' + i + '" style="left: ' + big_w + '%">' + result + '</span>';
             }
             this.coords.big_num = Math.ceil(big_num + 1);
 
@@ -2261,7 +2261,7 @@
                 num = this.coords.big_num;
 
             for (i = 0; i < num; i++) {
-                $label = this.$cache.grid.find(".js-grid-text-" + i);
+                $label = this.$cache.grid.find(".js_-grid-text-" + i);
                 this.$cache.grid_labels.push($label);
             }
 

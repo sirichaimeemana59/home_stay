@@ -1,5 +1,5 @@
 /*! =========================================================
- * bootstrap-slider.js
+ * bootstrap-slider.js_
  *
  * Maintainers:
  *		Kyle Kemp
@@ -837,7 +837,7 @@ const windowIsDefined = (typeof window === "object");
 				this.handle1.addEventListener("focus", this.showTooltip, false);
 				this.handle1.addEventListener("blur", this.hideTooltip, false);
 
-				
+
 				this.handle2.addEventListener("focus", this.showTooltip, false);
 				this.handle2.addEventListener("blur", this.hideTooltip, false);
 
@@ -2098,7 +2098,7 @@ const windowIsDefined = (typeof window === "object");
 			}
 			else {
 				if (windowIsDefined) {
-					window.console.warn("bootstrap-slider.js - WARNING: $.fn.slider namespace is already bound. Use the $.fn.bootstrapSlider namespace instead.");
+					window.console.warn("bootstrap-slider.js_ - WARNING: $.fn.slider namespace is already bound. Use the $.fn.bootstrapSlider namespace instead.");
 				}
 				autoRegisterNamespace = NAMESPACE_ALTERNATE;
 			}

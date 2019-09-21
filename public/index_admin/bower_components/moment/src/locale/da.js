@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Danish [da]
 //! author : Ulrik Nielsen : https://github.com/mrbase
 

@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Esperanto [eo]
 //! author : Colin Dean : https://github.com/colindean
 //! author : Mia Nordentoft Imperatori : https://github.com/miestasmia

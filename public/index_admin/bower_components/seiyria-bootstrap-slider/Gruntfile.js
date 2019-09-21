@@ -16,7 +16,7 @@ module.exports = function(grunt) {
           text: "/*! =======================================================\n                      VERSION  <%= pkg.version %>              \n========================================================= */"
         },
         files: {
-          '<%= pkg.gruntConfig.dist.js %>': '<%= pkg.gruntConfig.temp.js %>',
+          '<%= pkg.gruntConfig.dist.js %>': '<%= pkg.gruntConfig.temp.js_ %>',
           '<%= pkg.gruntConfig.dist.jsMin %>': '<%= pkg.gruntConfig.temp.jsMin %>',
           '<%= pkg.gruntConfig.dist.css %>': '<%= pkg.gruntConfig.temp.css %>',
           '<%= pkg.gruntConfig.dist.cssMin %>': '<%= pkg.gruntConfig.temp.cssMin %>'
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
         preserveComments: 'some'
       },
       dist: {
-        src: '<%= pkg.gruntConfig.temp.js %>',
+        src: '<%= pkg.gruntConfig.temp.js_ %>',
         dest: '<%= pkg.gruntConfig.temp.jsMin %>'
       }
     },
@@ -37,8 +37,8 @@ module.exports = function(grunt) {
         presets: ['es2015']
       },
       dist: {
-        src: '<%= pkg.gruntConfig.js.slider %>',
-        dest: '<%= pkg.gruntConfig.temp.js %>'
+        src: '<%= pkg.gruntConfig.js_.slider %>',
+        dest: '<%= pkg.gruntConfig.temp.js_ %>'
       }
     },
     jshint: {
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
         options: {
           '-W099': true
         },
-        src: '<%= pkg.gruntConfig.js.slider %>'
+        src: '<%= pkg.gruntConfig.js_.slider %>'
       },
       options: {
         esnext: true,
@@ -73,10 +73,10 @@ module.exports = function(grunt) {
         "-W099": true
       },
       gruntfile: {
-        src: 'Gruntfile.js'
+        src: 'Gruntfile.js_'
       },
       js: {
-        src: '<%= pkg.gruntConfig.js.slider %>'
+        src: '<%= pkg.gruntConfig.js_.slider %>'
       },
       spec : {
         src: '<%= pkg.gruntConfig.spec %>',
@@ -119,10 +119,10 @@ module.exports = function(grunt) {
       src: ['./src/less/bootstrap-slider.less']
     },
     jasmine : {
-      src : '<%= pkg.gruntConfig.temp.js %>',
+      src : '<%= pkg.gruntConfig.temp.js_ %>',
       options : {
         specs : '<%= pkg.gruntConfig.spec %>',
-        vendor : ['<%= pkg.gruntConfig.js.jquery %>', '<%= pkg.gruntConfig.js.bindPolyfill %>'],
+        vendor : ['<%= pkg.gruntConfig.js_.jquery %>', '<%= pkg.gruntConfig.js_.bindPolyfill %>'],
         styles : ['<%= pkg.gruntConfig.css.bootstrap %>', '<%= pkg.gruntConfig.temp.css %>'],
         template : '<%= pkg.gruntConfig.tpl.SpecRunner %>'
       }
@@ -132,10 +132,10 @@ module.exports = function(grunt) {
         options : {
           data : {
             js : {
-              highlightjs: '<%= pkg.gruntConfig.js.highlightjs %>',
-              modernizr : '<%= pkg.gruntConfig.js.modernizr %>',
-              jquery : '<%= pkg.gruntConfig.js.jquery %>',
-              slider : '<%= pkg.gruntConfig.temp.js %>'
+              highlightjs: '<%= pkg.gruntConfig.js_.highlightjs %>',
+              modernizr : '<%= pkg.gruntConfig.js_.modernizr %>',
+              jquery : '<%= pkg.gruntConfig.js_.jquery %>',
+              slider : '<%= pkg.gruntConfig.temp.js_ %>'
             },
             css : {
               highlightjs: '<%= pkg.gruntConfig.css.highlightjs %>',
@@ -152,10 +152,10 @@ module.exports = function(grunt) {
         options : {
           data : {
             js : {
-              highlightjs: '<%= pkg.gruntConfig.js.highlightjs %>',
-              modernizr : '<%= pkg.gruntConfig.js.modernizr %>',
-              jquery : '<%= pkg.gruntConfig.js.jquery %>',
-              slider : 'js/bootstrap-slider.js'
+              highlightjs: '<%= pkg.gruntConfig.js_.highlightjs %>',
+              modernizr : '<%= pkg.gruntConfig.js_.modernizr %>',
+              jquery : '<%= pkg.gruntConfig.js_.jquery %>',
+              slider : 'js_/bootstrap-slider.js_'
             },
             css : {
               highlightjs: '<%= pkg.gruntConfig.css.highlightjs %>',
@@ -174,8 +174,8 @@ module.exports = function(grunt) {
         livereload: true
       },
       js: {
-        files: '<%= pkg.gruntConfig.js.slider %>',
-        tasks: ['jshint:js', 'babel', 'jasmine']
+        files: '<%= pkg.gruntConfig.js_.slider %>',
+        tasks: ['jshint:js_', 'babel', 'jasmine']
       },
       gruntfile: {
         files: '<%= jshint.gruntfile %>',

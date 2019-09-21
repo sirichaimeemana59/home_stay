@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Swedish [sv]
 //! author : Jens Alm : https://github.com/ulmus
 

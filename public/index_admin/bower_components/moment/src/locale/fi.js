@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Finnish [fi]
 //! author : Tarmo Aidantausta : https://github.com/bleadof
 

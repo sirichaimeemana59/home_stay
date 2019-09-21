@@ -30,8 +30,8 @@ module.exports = function (grunt) {
   var i18nPaths = {};
 
   var i18nFiles = grunt.file.expand({
-    cwd: 'src/js'
-  }, 'select2/i18n/*.js');
+    cwd: 'src/js_'
+  }, 'select2/i18n/*.js_');
 
   var testFiles = grunt.file.expand('tests/**/*.html');
   var testUrls = testFiles.map(function (filePath) {
@@ -67,23 +67,23 @@ module.exports = function (grunt) {
     concat: {
       'dist': {
         options: {
-          banner: grunt.file.read('src/js/wrapper.start.js'),
+          banner: grunt.file.read('src/js_/wrapper.start.js_'),
         },
         src: [
-          'dist/js/select2.js',
-          'src/js/wrapper.end.js'
+          'dist/js_/select2.js_',
+          'src/js_/wrapper.end.js_'
         ],
-        dest: 'dist/js/select2.js'
+        dest: 'dist/js_/select2.js_'
       },
       'dist.full': {
         options: {
-          banner: grunt.file.read('src/js/wrapper.start.js'),
+          banner: grunt.file.read('src/js_/wrapper.start.js_'),
         },
         src: [
-          'dist/js/select2.full.js',
-          'src/js/wrapper.end.js'
+          'dist/js_/select2.full.js_',
+          'src/js_/wrapper.end.js_'
         ],
-        dest: 'dist/js/select2.full.js'
+        dest: 'dist/js_/select2.full.js_'
       }
     },
 
@@ -99,15 +99,15 @@ module.exports = function (grunt) {
 
     uglify: {
       'dist': {
-        src: 'dist/js/select2.js',
-        dest: 'dist/js/select2.min.js',
+        src: 'dist/js_/select2.js_',
+        dest: 'dist/js_/select2.min.js_',
         options: {
           banner: minifiedBanner
         }
       },
       'dist.full': {
-        src: 'dist/js/select2.full.js',
-        dest: 'dist/js/select2.full.min.js',
+        src: 'dist/js_/select2.full.js_',
+        dest: 'dist/js_/select2.full.min.js_',
         options: {
           banner: minifiedBanner
         }
@@ -128,10 +128,10 @@ module.exports = function (grunt) {
         reporterOutput: ''
       },
       code: {
-        src: ['src/js/**/*.js']
+        src: ['src/js_/**/*.js_']
       },
       tests: {
-        src: ['tests/**/*.js']
+        src: ['tests/**/*.js_']
       }
     },
 
@@ -165,10 +165,10 @@ module.exports = function (grunt) {
     requirejs: {
       'dist': {
         options: {
-          baseUrl: 'src/js',
+          baseUrl: 'src/js_',
           optimize: 'none',
           name: 'select2/core',
-          out: 'dist/js/select2.js',
+          out: 'dist/js_/select2.js_',
           include: includes,
           namespace: 'S2',
           paths: {
@@ -177,17 +177,17 @@ module.exports = function (grunt) {
             'jquery-mousewheel': 'jquery.mousewheel.shim'
           },
           wrap: {
-            startFile: 'src/js/banner.start.js',
-            endFile: 'src/js/banner.end.js'
+            startFile: 'src/js_/banner.start.js_',
+            endFile: 'src/js_/banner.end.js_'
           }
         }
       },
       'dist.full': {
         options: {
-          baseUrl: 'src/js',
+          baseUrl: 'src/js_',
           optimize: 'none',
           name: 'select2/core',
-          out: 'dist/js/select2.full.js',
+          out: 'dist/js_/select2.full.js_',
           include: fullIncludes,
           namespace: 'S2',
           paths: {
@@ -196,21 +196,21 @@ module.exports = function (grunt) {
             'jquery-mousewheel': require.resolve('jquery-mousewheel').slice(0, -3)
           },
           wrap: {
-            startFile: 'src/js/banner.start.js',
-            endFile: 'src/js/banner.end.js'
+            startFile: 'src/js_/banner.start.js_',
+            endFile: 'src/js_/banner.end.js_'
           }
         }
       },
       'i18n': {
         options: {
-          baseUrl: 'src/js/select2/i18n',
-          dir: 'dist/js/i18n',
+          baseUrl: 'src/js_/select2/i18n',
+          dir: 'dist/js_/i18n',
           paths: i18nPaths,
           modules: i18nModules,
           namespace: 'S2',
           wrap: {
-            start: minifiedBanner + grunt.file.read('src/js/banner.start.js'),
-            end: grunt.file.read('src/js/banner.end.js')
+            start: minifiedBanner + grunt.file.read('src/js_/banner.start.js_'),
+            end: grunt.file.read('src/js_/banner.end.js_')
           }
         }
       }
@@ -219,8 +219,8 @@ module.exports = function (grunt) {
     watch: {
       js: {
         files: [
-          'src/js/select2/**/*.js',
-          'tests/**/*.js'
+          'src/js_/select2/**/*.js_',
+          'tests/**/*.js_'
         ],
         tasks: [
           'compile',

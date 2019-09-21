@@ -56,31 +56,31 @@ module.exports = function (grunt) {
 
     jshint: {
       options: {
-        jshintrc: 'js/.jshintrc'
+        jshintrc: 'js_/.jshintrc'
       },
       grunt: {
         options: {
           jshintrc: 'grunt/.jshintrc'
         },
-        src: ['Gruntfile.js', 'package.js', 'grunt/*.js']
+        src: ['Gruntfile.js_', 'package.js_', 'grunt/*.js_']
       },
       core: {
-        src: 'js/*.js'
+        src: 'js_/*.js_'
       },
       test: {
         options: {
-          jshintrc: 'js/tests/unit/.jshintrc'
+          jshintrc: 'js_/tests/unit/.jshintrc'
         },
-        src: 'js/tests/unit/*.js'
+        src: 'js_/tests/unit/*.js_'
       },
       assets: {
-        src: ['docs/assets/js/src/*.js', 'docs/assets/js/*.js', '!docs/assets/js/*.min.js']
+        src: ['docs/assets/js_/src/*.js_', 'docs/assets/js_/*.js_', '!docs/assets/js_/*.min.js_']
       }
     },
 
     jscs: {
       options: {
-        config: 'js/.jscsrc'
+        config: 'js_/.jscsrc'
       },
       grunt: {
         src: '<%= jshint.grunt.src %>'
@@ -106,20 +106,20 @@ module.exports = function (grunt) {
       },
       core: {
         src: [
-          'js/transition.js',
-          'js/alert.js',
-          'js/button.js',
-          'js/carousel.js',
-          'js/collapse.js',
-          'js/dropdown.js',
-          'js/modal.js',
-          'js/tooltip.js',
-          'js/popover.js',
-          'js/scrollspy.js',
-          'js/tab.js',
-          'js/affix.js'
+          'js_/transition.js_',
+          'js_/alert.js_',
+          'js_/button.js_',
+          'js_/carousel.js_',
+          'js_/collapse.js_',
+          'js_/dropdown.js_',
+          'js_/modal.js_',
+          'js_/tooltip.js_',
+          'js_/popover.js_',
+          'js_/scrollspy.js_',
+          'js_/tab.js_',
+          'js_/affix.js_'
         ],
-        dest: 'dist/js/<%= pkg.name %>.js'
+        dest: 'dist/js_/<%= pkg.name %>.js_'
       }
     },
 
@@ -138,11 +138,11 @@ module.exports = function (grunt) {
       },
       customize: {
         src: configBridge.paths.customizerJs,
-        dest: 'docs/assets/js/customize.min.js'
+        dest: 'docs/assets/js_/customize.min.js_'
       },
       docs: {
         src: configBridge.paths.docsJs,
-        dest: 'docs/assets/js/docs.min.js'
+        dest: 'docs/assets/js_/docs.min.js_'
       }
     },
 
@@ -318,7 +318,7 @@ module.exports = function (grunt) {
         ],
         noLangDetect: true
       },
-      src: ['_gh_pages/**/*.html', 'js/tests/**/*.html']
+      src: ['_gh_pages/**/*.html', 'js_/tests/**/*.html']
     },
 
     watch: {
@@ -342,10 +342,10 @@ module.exports = function (grunt) {
 
     exec: {
       browserstack: {
-        command: 'cross-env BROWSER=true karma start grunt/karma.conf.js'
+        command: 'cross-env BROWSER=true karma start grunt/karma.conf.js_'
       },
       karma: {
-        command: 'karma start grunt/karma.conf.js'
+        command: 'karma start grunt/karma.conf.js_'
       }
     }
   });
@@ -369,7 +369,7 @@ module.exports = function (grunt) {
   var testSubtasks = [];
   // Skip core tests if running a different subset of the test suite
   if (runSubset('core')) {
-    testSubtasks = testSubtasks.concat(['dist-css', 'dist-js', 'stylelint:dist', 'test-js', 'docs']);
+    testSubtasks = testSubtasks.concat(['dist-css', 'dist-js_', 'stylelint:dist', 'test-js_', 'docs']);
   }
   // Skip HTML validation if running a different subset of the test suite
   if (runSubset('validate-html') &&
@@ -387,16 +387,16 @@ module.exports = function (grunt) {
   }
 
   grunt.registerTask('test', testSubtasks);
-  grunt.registerTask('test-js', ['jshint:core', 'jshint:test', 'jshint:grunt', 'jscs:core', 'jscs:test', 'jscs:grunt', 'exec:karma']);
+  grunt.registerTask('test-js_', ['jshint:core', 'jshint:test', 'jshint:grunt', 'jscs:core', 'jscs:test', 'jscs:grunt', 'exec:karma']);
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['concat', 'uglify:core', 'commonjs']);
+  grunt.registerTask('dist-js_', ['concat', 'uglify:core', 'commonjs']);
 
   // CSS distribution task.
   grunt.registerTask('dist-css', ['less:core', 'less:theme', 'postcss:core', 'postcss:theme', 'cssmin:core', 'cssmin:theme']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['clean:dist', 'dist-css', 'copy:fonts', 'dist-js']);
+  grunt.registerTask('dist', ['clean:dist', 'dist-css', 'copy:fonts', 'dist-js_']);
 
   // Default task.
   grunt.registerTask('default', ['clean:dist', 'copy:fonts', 'test']);
@@ -415,16 +415,16 @@ module.exports = function (grunt) {
 
   grunt.registerTask('commonjs', 'Generate CommonJS entrypoint module in dist dir.', function () {
     var srcFiles = grunt.config.get('concat.core.src');
-    var destFilepath = 'dist/js/npm.js';
+    var destFilepath = 'dist/js_/npm.js_';
     generateCommonJSModule(grunt, srcFiles, destFilepath);
   });
 
   // Docs task.
   grunt.registerTask('docs-css', ['less:docs', 'less:docsIe', 'postcss:docs', 'postcss:examples', 'cssmin:docs']);
   grunt.registerTask('lint-docs-css', ['stylelint:docs', 'stylelint:examples']);
-  grunt.registerTask('docs-js', ['uglify:docs', 'uglify:customize']);
-  grunt.registerTask('lint-docs-js', ['jshint:assets', 'jscs:assets']);
-  grunt.registerTask('docs', ['docs-css', 'lint-docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs', 'build-glyphicons-data', 'build-customizer']);
+  grunt.registerTask('docs-js_', ['uglify:docs', 'uglify:customize']);
+  grunt.registerTask('lint-docs-js_', ['jshint:assets', 'jscs:assets']);
+  grunt.registerTask('docs', ['docs-css', 'lint-docs-css', 'docs-js_', 'lint-docs-js_', 'clean:docs', 'copy:docs', 'build-glyphicons-data', 'build-customizer']);
 
   grunt.registerTask('prep-release', ['dist', 'docs', 'jekyll:github']);
 };

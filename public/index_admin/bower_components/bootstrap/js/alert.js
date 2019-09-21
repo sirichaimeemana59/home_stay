@@ -1,5 +1,5 @@
 /* ========================================================================
- * Bootstrap: alert.js v3.4.1
+ * Bootstrap: alert.js_ v3.4.1
  * https://getbootstrap.com/docs/3.4/javascript/#alerts
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.

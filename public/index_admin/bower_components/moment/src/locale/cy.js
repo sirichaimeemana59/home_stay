@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Welsh [cy]
 //! author : Robert Allen : https://github.com/robgallen
 //! author : https://github.com/ryangreaves

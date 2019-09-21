@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Central Atlas Tamazight [tzm]
 //! author : Abdel Said : https://github.com/abdelsaid
 

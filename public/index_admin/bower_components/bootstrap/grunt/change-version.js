@@ -93,7 +93,7 @@ function main(args) {
     '',
     '.css',
     '.html',
-    '.js',
+    '.js_',
     '.json',
     '.less',
     '.md',

@@ -1,5 +1,5 @@
 /* ========================================================================
- * Bootstrap: affix.js v3.4.1
+ * Bootstrap: affix.js_ v3.4.1
  * https://getbootstrap.com/docs/3.4/javascript/#affix
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.

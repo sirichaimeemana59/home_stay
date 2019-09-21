@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Chuvash [cv]
 //! author : Anatoly Mironov : https://github.com/mirontoli
 

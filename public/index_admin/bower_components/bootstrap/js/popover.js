@@ -1,5 +1,5 @@
 /* ========================================================================
- * Bootstrap: popover.js v3.4.1
+ * Bootstrap: popover.js_ v3.4.1
  * https://getbootstrap.com/docs/3.4/javascript/#popovers
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
@@ -17,7 +17,7 @@
     this.init('popover', element, options)
   }
 
-  if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')
+  if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js_')
 
   Popover.VERSION  = '3.4.1'
 
@@ -29,7 +29,7 @@
   })
 
 
-  // NOTE: POPOVER EXTENDS tooltip.js
+  // NOTE: POPOVER EXTENDS tooltip.js_
   // ================================
 
   Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype)

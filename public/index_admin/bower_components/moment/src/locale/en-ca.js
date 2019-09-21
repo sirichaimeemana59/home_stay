@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : English (Canada) [en-ca]
 //! author : Jonathan Abourbih : https://github.com/jonbca
 

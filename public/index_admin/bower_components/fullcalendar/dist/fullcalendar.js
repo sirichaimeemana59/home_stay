@@ -1337,7 +1337,7 @@ momentProperties.push('_ambigZone');
 Call this if you want Moment's original format method to be used
 */
 function oldMomentFormat(mom, formatStr) {
-    return oldMomentProto.format.call(mom, formatStr); // oldMomentProto defined in moment-ext.js
+    return oldMomentProto.format.call(mom, formatStr); // oldMomentProto defined in moment-ext.js_
 }
 exports.oldMomentFormat = oldMomentFormat;
 // Creating
@@ -4150,7 +4150,7 @@ var View = /** @class */ (function (_super) {
         if (dateMutation) {
             eventInstance.dateProfile = dateMutation.buildNewDateProfile(eventInstance.dateProfile, this.calendar);
         }
-        this.triggerEventDrop(eventInstance, 
+        this.triggerEventDrop(eventInstance,
         // a drop doesn't necessarily mean a date mutation (ex: resource change)
         (dateMutation && dateMutation.dateDelta) || moment.duration(), undoFunc, el, ev);
     };
@@ -7469,7 +7469,7 @@ var DayGrid = /** @class */ (function (_super) {
         classes.unshift('fc-day-top');
         if (this.cellWeekNumbersVisible) {
             // To determine the day of week number change under ISO, we cannot
-            // rely on moment.js methods such as firstDayOfWeek() or weekday(),
+            // rely on moment.js_ methods such as firstDayOfWeek() or weekday(),
             // because they rely on the locale's dow (possibly overridden by
             // our firstDay option), which may not be Monday. We cannot change
             // dow, because that would affect the calendar start day as well.

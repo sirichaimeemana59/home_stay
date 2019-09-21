@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Spanish [es]
 //! author : Julio Napurí : https://github.com/julionc
 

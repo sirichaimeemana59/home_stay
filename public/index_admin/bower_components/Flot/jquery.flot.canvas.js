@@ -9,7 +9,7 @@ looks better, due to cross-browser canvas text inconsistencies and limitations.
 
 It can also be desirable to render the plot entirely in canvas, particularly
 if the goal is to save it as an image, or if Flot is being used in a context
-where the HTML DOM does not exist, as is the case within Node.js. This plugin
+where the HTML DOM does not exist, as is the case within Node.js_. This plugin
 switches out Flot's standard drawing operations for canvas-only replacements.
 
 Currently the plugin supports only axis labels, but it will eventually allow

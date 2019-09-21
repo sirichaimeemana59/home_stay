@@ -59,12 +59,12 @@ function modules() {
   var fontAwesomeWebfonts = gulp.src('./node_modules/@fortawesome/fontawesome-free/webfonts/**/*')
     .pipe(gulp.dest('./vendor/fontawesome-free/webfonts'));
   // jQuery Easing
-  var jqueryEasing = gulp.src('./node_modules/jquery.easing/*.js')
+  var jqueryEasing = gulp.src('./node_modules/jquery.easing/*.js_')
     .pipe(gulp.dest('./vendor/jquery-easing'));
   // jQuery
   var jquery = gulp.src([
       './node_modules/jquery/dist/*',
-      '!./node_modules/jquery/dist/core.js'
+      '!./node_modules/jquery/dist/core.js_'
     ])
     .pipe(gulp.dest('./vendor/jquery'));
   return merge(bootstrap, fontAwesomeCSS, fontAwesomeWebfonts, jquery, jqueryEasing);
@@ -99,8 +99,8 @@ function css() {
 function js() {
   return gulp
     .src([
-      './js/*.js',
-      '!./js/*.min.js'
+      './js_/*.js_',
+      '!./js_/*.min.js_'
     ])
     .pipe(uglify())
     .pipe(header(banner, {
@@ -109,14 +109,14 @@ function js() {
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('./js'))
+    .pipe(gulp.dest('./js_'))
     .pipe(browsersync.stream());
 }
 
 // Watch files
 function watchFiles() {
   gulp.watch("./scss/**/*", css);
-  gulp.watch(["./js/**/*", "!./js/**/*.min.js"], js);
+  gulp.watch(["./js_/**/*", "!./js_/**/*.min.js_"], js);
   gulp.watch("./**/*.html", browserSyncReload);
 }
 

@@ -115,7 +115,7 @@
   // Returns response from URL if async is false, otherwise the AJAX request object itself
   var _transport = function (opts) {
     if ((!fleegix || typeof fleegix.xhr === 'undefined') && (!$ || typeof $.ajax === 'undefined')) {
-      throw new Error('Please use the Fleegix.js XHR module, jQuery ajax, Zepto ajax, or define your own transport mechanism for downloading zone files.');
+      throw new Error('Please use the Fleegix.js_ XHR module, jQuery ajax, Zepto ajax, or define your own transport mechanism for downloading zone files.');
     }
     if (!opts) return;
     if (!opts.url) throw new Error ('URL must be specified');

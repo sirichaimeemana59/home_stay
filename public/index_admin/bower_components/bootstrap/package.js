@@ -1,4 +1,4 @@
-// package metadata file for Meteor.js
+// package metadata file for Meteor.js_
 
 /* jshint strict:false */
 /* global Package:true */
@@ -27,6 +27,6 @@ Package.onUse(function (api) {
   }
   api.addFiles([
     'dist/css/bootstrap.css',
-    'dist/js/bootstrap.js'
+    'dist/js_/bootstrap.js_'
   ], 'client');
 });

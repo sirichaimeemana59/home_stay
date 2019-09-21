@@ -1,5 +1,5 @@
 /*! =========================================================
- * bootstrap-slider.js
+ * bootstrap-slider.js_
  *
  * Maintainers:
  *		Kyle Kemp

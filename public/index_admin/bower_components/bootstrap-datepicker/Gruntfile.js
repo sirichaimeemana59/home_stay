@@ -22,33 +22,33 @@ module.exports = function(grunt){
         },
         jshint: {
             options: {
-                jshintrc: 'js/.jshintrc'
+                jshintrc: 'js_/.jshintrc'
             },
             main: {
-                src: 'js/bootstrap-datepicker.js'
+                src: 'js_/bootstrap-datepicker.js_'
             },
             locales: {
-                src: 'js/locales/*.js'
+                src: 'js_/locales/*.js_'
             },
             gruntfile: {
                 options: {
                     jshintrc: 'grunt/.jshintrc'
                 },
-                src: 'Gruntfile.js'
+                src: 'Gruntfile.js_'
             }
         },
         jscs: {
             options: {
-                config: 'js/.jscsrc'
+                config: 'js_/.jscsrc'
             },
             main: {
-                src: 'js/bootstrap-datepicker.js'
+                src: 'js_/bootstrap-datepicker.js_'
             },
             locales: {
-                src: 'js/locales/*.js'
+                src: 'js_/locales/*.js_'
             },
             gruntfile: {
-                src: 'Gruntfile.js'
+                src: 'Gruntfile.js_'
             }
         },
         qunit: {
@@ -63,8 +63,8 @@ module.exports = function(grunt){
                 stripBanners: true
             },
             main: {
-                src: 'js/bootstrap-datepicker.js',
-                dest: 'dist/js/<%= pkg.name %>.js'
+                src: 'js_/bootstrap-datepicker.js_',
+                dest: 'dist/js_/<%= pkg.name %>.js_'
             }
         },
         uglify: {
@@ -78,11 +78,11 @@ module.exports = function(grunt){
             locales: {
                 files: [{
                     expand: true,
-                    cwd: 'js/locales/',
-                    src: '*.js',
+                    cwd: 'js_/locales/',
+                    src: '*.js_',
                     dest: 'dist/locales/',
                     rename: function(dest, name){
-                        return dest + name.replace(/\.js$/, '.min.js');
+                        return dest + name.replace(/\.js$/, '.min.js_');
                     }
                 }]
             }
@@ -126,7 +126,7 @@ module.exports = function(grunt){
                 banner: '<%= banner %>'
             },
             css: 'dist/css/*.css',
-            js: 'dist/js/**/*.js'
+            js: 'dist/js_/**/*.js_'
         },
         cssmin: {
             options: {
@@ -178,8 +178,8 @@ module.exports = function(grunt){
         'string-replace': {
             js: {
                 files: [{
-                    src: 'js/bootstrap-datepicker.js',
-                    dest: 'js/bootstrap-datepicker.js'
+                    src: 'js_/bootstrap-datepicker.js_',
+                    dest: 'js_/bootstrap-datepicker.js_'
                 }],
                 options: {
                     replacements: [{
@@ -208,20 +208,20 @@ module.exports = function(grunt){
     require('time-grunt')(grunt);
 
     // JS distribution task.
-    grunt.registerTask('dist-js', ['concat', 'uglify:main', 'uglify:locales', 'usebanner:js']);
+    grunt.registerTask('dist-js_', ['concat', 'uglify:main', 'uglify:locales', 'usebanner:js_']);
 
     // CSS distribution task.
     grunt.registerTask('less-compile', 'less');
     grunt.registerTask('dist-css', ['less-compile', 'cssmin:main', 'cssmin:standalone', 'usebanner:css']);
 
     // Full distribution task.
-    grunt.registerTask('dist', ['clean:dist', 'dist-js', 'dist-css']);
+    grunt.registerTask('dist', ['clean:dist', 'dist-js_', 'dist-css']);
 
     // Code check tasks.
-    grunt.registerTask('lint-js', 'Lint all js files with jshint and jscs', ['jshint', 'jscs']);
+    grunt.registerTask('lint-js_', 'Lint all js_ files with jshint and jscs', ['jshint', 'jscs']);
     grunt.registerTask('lint-css', 'Lint all css files', ['dist-css', 'csslint:dist']);
     grunt.registerTask('qunit-all', 'Run qunit tests', ['qunit:main', 'qunit-timezone']);
-    grunt.registerTask('test', 'Lint files and run unit tests', ['lint-js', /*'lint-css',*/ 'qunit-all']);
+    grunt.registerTask('test', 'Lint files and run unit tests', ['lint-js_', /*'lint-css',*/ 'qunit-all']);
 
     // Version numbering task.
     // grunt bump-version --newver=X.Y.Z
@@ -249,7 +249,7 @@ module.exports = function(grunt){
             // NOTE: For 'zh-TW' and 'ja' locales install adobe-source-han-sans-jp-fonts (Arch Linux)
             grunt.util.spawn({
                 cmd: phantomjs,
-                args: ['docs/_screenshots/script/screenshot.js', abspath, outfile]
+                args: ['docs/_screenshots/script/screenshot.js_', abspath, outfile]
             });
         });
     });

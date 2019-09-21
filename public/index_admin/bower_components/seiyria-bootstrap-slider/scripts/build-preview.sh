@@ -9,8 +9,8 @@ grunt build
 grunt build-gh-pages
 
 mkdir css
-mkdir js
+mkdir js_
 
 cp node_modules/bootstrap/dist/css/bootstrap.min.css css/bootstrap.min.css
 mv temp/bootstrap-slider.css css/bootstrap-slider.css
-mv temp/bootstrap-slider.js js/bootstrap-slider.js
+mv temp/bootstrap-slider.js_ js_/bootstrap-slider.js_

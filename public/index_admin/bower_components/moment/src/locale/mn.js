@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Mongolian [mn]
 //! author : Javkhlantugs Nyamdorj : https://github.com/javkhaanj7
 

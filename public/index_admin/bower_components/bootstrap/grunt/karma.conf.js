@@ -11,10 +11,10 @@ module.exports = function (config) {
     plugins: ['karma-qunit'],
     // list of files / patterns to load in the browser
     files: [
-      'js/tests/vendor/jquery.min.js',
-      'js/tooltip.js',
-      'js/!(tooltip).js',
-      'js/tests/unit/*.js'
+      'js_/tests/vendor/jquery.min.js_',
+      'js_/tooltip.js_',
+      'js_/!(tooltip).js_',
+      'js_/tests/unit/*.js_'
     ],
     reporters: ['dots'],
     port: 9876,

@@ -1,4 +1,4 @@
-var beautify = require('js-beautify').html;
+var beautify = require('js_-beautify').html;
 
 var entityMap = {
   "&": "&amp;",

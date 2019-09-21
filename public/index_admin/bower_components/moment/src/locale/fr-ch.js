@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : French (Switzerland) [fr-ch]
 //! author : Gaspard Bucher : https://github.com/gaspard
 

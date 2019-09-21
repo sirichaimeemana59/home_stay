@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Uzbek Latin [uz-latn]
 //! author : Rasulbek Mirzayev : github.com/Rasulbeeek
 

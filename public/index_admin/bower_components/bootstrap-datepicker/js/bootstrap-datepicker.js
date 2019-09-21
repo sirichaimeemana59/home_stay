@@ -1,5 +1,5 @@
 /* =========================================================
- * bootstrap-datepicker.js
+ * bootstrap-datepicker.js_
  * Repo: https://github.com/uxsolutions/bootstrap-datepicker/
  * Demo: https://eternicode.github.io/bootstrap-datepicker/
  * Docs: https://bootstrap-datepicker.readthedocs.org/
@@ -1654,7 +1654,7 @@
 					// Preliminary otions
 					xopts = $.extend({}, defaults, elopts, options),
 					locopts = opts_from_locale(xopts.language),
-					// Options priority: js args, data-attrs, locales, defaults
+					// Options priority: js_ args, data-attrs, locales, defaults
 					opts = $.extend({}, defaults, locopts, elopts, options);
 				if ($this.hasClass('input-daterange') || opts.inputs){
 					$.extend(opts, {

@@ -1,15 +1,7 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
+//use Illuminate\Routing\Route;
 
 Auth::routes();
 Route::get('/', function () {
@@ -20,7 +12,8 @@ Route::get('/home', function () {
     return view('home_stay.list_home_stay');
 });
 
-Route::get('/login_success','Homeuser/HomeuserController@index');
+Route::get('/login_success','HomeController@index')->name('home');
+Route::get('/logout', 'Auth\LoginController@getLogout');
 
 //Route::get('/home', 'HomeController@index')->name('home');
 //Language
@@ -28,3 +21,9 @@ Route::get('locale/{locale?}',function($locale){
     Session::put('locale',$locale);
     return redirect()->back();
 });
+
+
+//Super Admin
+//Property
+Route::any('/super_admin/list_property','SuperAdmin\PropertyController@index');
+Route::post('/super_admin/list_property/create','SuperAdmin\PropertyController@create');

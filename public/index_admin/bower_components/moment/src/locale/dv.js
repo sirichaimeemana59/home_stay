@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Maldivian [dv]
 //! author : Jawish Hameed : https://github.com/jawish
 

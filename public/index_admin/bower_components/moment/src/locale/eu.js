@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Basque [eu]
 //! author : Eneko Illarramendi : https://github.com/eillarra
 

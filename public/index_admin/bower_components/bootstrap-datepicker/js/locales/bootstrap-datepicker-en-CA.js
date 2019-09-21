@@ -1,7 +1,7 @@
 /**
  * Canadian English translation for bootstrap-datepicker
  * Mike Nacey <mnacey@gmail.com>
- * DEPRECATED: This filename doesn't follow the convention, use bootstrap-datepicker.en-CA.js instead
+ * DEPRECATED: This filename doesn't follow the convention, use bootstrap-datepicker.en-CA.js_ instead
  */
 ;(function($){
 	$.fn.datepicker.dates['en-CA'] = {
@@ -17,6 +17,6 @@
 		format: "yyyy-mm-dd"
 	};
 
-	$.fn.datepicker.deprecated('This filename doesn\'t follow the convention, use bootstrap-datepicker.en-CA.js instead.');
+	$.fn.datepicker.deprecated('This filename doesn\'t follow the convention, use bootstrap-datepicker.en-CA.js_ instead.');
 
 }(jQuery));

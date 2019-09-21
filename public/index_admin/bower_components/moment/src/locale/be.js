@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Belarusian [be]
 //! author : Dmitry Demidov : https://github.com/demidov91
 //! author: Praleska: http://praleska.pro/

@@ -14,7 +14,7 @@
  * your pages with a granular level of control over the experience.
  *
  * Modernizr has an optional (not included) conditional resource loader
- * called Modernizr.load(), based on Yepnope.js (yepnopejs.com).
+ * called Modernizr.load(), based on Yepnope.js_ (yepnopejs.com).
  * To get a build that includes Modernizr.load(), as well as choosing
  * which tests to include, go to www.modernizr.com/download/
  *
@@ -857,7 +857,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
         // Only input placeholder is tested while textarea's placeholder is not.
         // Currently Safari 4 and Opera 11 have support only for the input placeholder
-        // Both tests are available in feature-detects/forms-placeholder.js
+        // Both tests are available in feature-detects/forms-placeholder.js_
         Modernizr['input'] = (function( props ) {
             for ( var i = 0, len = props.length; i < len; i++ ) {
                 attrs[ props[i] ] = !!(props[i] in inputElem);
@@ -1394,11 +1394,11 @@ window.Modernizr = (function( window, document, undefined ) {
 
 
     /*>>cssclasses*/
-    // Remove "no-js" class from <html> element, if it exists:
+    // Remove "no-js_" class from <html> element, if it exists:
     docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2') +
 
                             // Add the new classes to the <html> element.
-                            (enableClasses ? ' js ' + classes.join(' ') : '');
+                            (enableClasses ? ' js_ ' + classes.join(' ') : '');
     /*>>cssclasses*/
 
     return Modernizr;

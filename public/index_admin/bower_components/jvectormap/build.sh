@@ -1,32 +1,32 @@
 #!/bin/bash
 
 files=( \
-  jquery-jvectormap.js \
-  jquery-mousewheel.js \
-  lib/jvectormap.js \
-  lib/abstract-element.js \
-  lib/abstract-canvas-element.js \
-  lib/abstract-shape-element.js \
-  lib/svg-element.js \
-  lib/svg-group-element.js \
-  lib/svg-canvas-element.js \
-  lib/svg-shape-element.js \
-  lib/svg-path-element.js \
-  lib/svg-circle-element.js \
-  lib/vml-element.js \
-  lib/vml-group-element.js \
-  lib/vml-canvas-element.js \
-  lib/vml-shape-element.js \
-  lib/vml-path-element.js \
-  lib/vml-circle-element.js \
-  lib/vector-canvas.js \
-  lib/simple-scale.js \
-  lib/ordinal-scale.js \
-  lib/numeric-scale.js \
-  lib/color-scale.js \
-  lib/data-series.js \
-  lib/proj.js \
-  lib/world-map.js \
+  jquery-jvectormap.js_ \
+  jquery-mousewheel.js_ \
+  lib/jvectormap.js_ \
+  lib/abstract-element.js_ \
+  lib/abstract-canvas-element.js_ \
+  lib/abstract-shape-element.js_ \
+  lib/svg-element.js_ \
+  lib/svg-group-element.js_ \
+  lib/svg-canvas-element.js_ \
+  lib/svg-shape-element.js_ \
+  lib/svg-path-element.js_ \
+  lib/svg-circle-element.js_ \
+  lib/vml-element.js_ \
+  lib/vml-group-element.js_ \
+  lib/vml-canvas-element.js_ \
+  lib/vml-shape-element.js_ \
+  lib/vml-path-element.js_ \
+  lib/vml-circle-element.js_ \
+  lib/vector-canvas.js_ \
+  lib/simple-scale.js_ \
+  lib/ordinal-scale.js_ \
+  lib/numeric-scale.js_ \
+  lib/color-scale.js_ \
+  lib/data-series.js_ \
+  lib/proj.js_ \
+  lib/world-map.js_ \
 )
 
 baseDir=`dirname $0`
@@ -39,7 +39,7 @@ done
 
 if [ -z "$1" ]
   then
-    minified=jquery.jvectormap.min.js
+    minified=jquery.jvectormap.min.js_
   else
     minified=$1
 fi

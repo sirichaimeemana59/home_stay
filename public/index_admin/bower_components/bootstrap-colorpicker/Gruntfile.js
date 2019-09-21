@@ -33,9 +33,9 @@ module.exports = function (grunt) {
         jshintrc: '.jshintrc'
       },
       files: [
-        'Gruntfile.js',
-        'docs/docs.js',
-        'dist/js/<%= pkg.name %>.js'
+        'Gruntfile.js_',
+        'docs/docs.js_',
+        'dist/js_/<%= pkg.name %>.js_'
       ]
     },
     jsbeautifier: {
@@ -61,25 +61,25 @@ module.exports = function (grunt) {
           endWithNewline: true
         }
       },
-      src: ['src/js/*.js', 'docs/docs.js'],
-      dist: ['dist/js/<%= pkg.name %>.js']
+      src: ['src/js_/*.js_', 'docs/docs.js_'],
+      dist: ['dist/js_/<%= pkg.name %>.js_']
     },
     combine: {
       js: {
-        input: 'src/js/colorpicker-plugin-wrapper.js',
-        output: 'dist/js/<%= pkg.name %>.js',
+        input: 'src/js_/colorpicker-plugin-wrapper.js_',
+        output: 'dist/js_/<%= pkg.name %>.js_',
         tokens: [{
           token: "//@version",
           string: '<%= pkg.version %>'
         }, {
           token: "//@colorpicker-color",
-          file: 'src/js/colorpicker-color.js'
+          file: 'src/js_/colorpicker-color.js_'
         }, {
           token: "//@colorpicker-defaults",
-          file: 'src/js/colorpicker-defaults.js'
+          file: 'src/js_/colorpicker-defaults.js_'
         }, {
           token: "//@colorpicker-component",
-          file: 'src/js/colorpicker-component.js'
+          file: 'src/js_/colorpicker-component.js_'
         }]
       },
       less: {
@@ -93,7 +93,7 @@ module.exports = function (grunt) {
     },
     strip_code: {
       src: {
-        src: 'dist/js/*.js'
+        src: 'dist/js_/*.js_'
       }
     },
     uglify: {
@@ -104,7 +104,7 @@ module.exports = function (grunt) {
       dist: {
         files: {
           'dist/js/<%= pkg.name %>.min.js': [
-            'dist/js/<%= pkg.name %>.js'
+            'dist/js_/<%= pkg.name %>.js_'
           ]
         }
       }
@@ -118,16 +118,16 @@ module.exports = function (grunt) {
       },
       js: {
         files: [
-          'src/js/*.js',
-          'docs/docs.js'
+          'src/js_/*.js_',
+          'docs/docs.js_'
         ],
-        tasks: ['jsbeautifier:src', 'combine:js', 'jsbeautifier:dist', 'uglify', 'jshint']
+        tasks: ['jsbeautifier:src', 'combine:js_', 'jsbeautifier:dist', 'uglify', 'jshint']
       },
       handlebars: {
         files: [
           'docs/*.hbs',
           'docs/**/*.hbs',
-          'docs/helpers/**/*.js'
+          'docs/helpers/**/*.js_'
         ],
         tasks: ['assemble']
       }
@@ -149,7 +149,7 @@ module.exports = function (grunt) {
     clean: {
       dist: [
         'dist/css/*',
-        'dist/js/*',
+        'dist/js_/*',
         'index_new.html'
       ]
     }
@@ -174,7 +174,7 @@ module.exports = function (grunt) {
     'less',
     'cssmin',
     'jsbeautifier:src',
-    'combine:js',
+    'combine:js_',
     'jsbeautifier:dist',
     'strip_code',
     'uglify',

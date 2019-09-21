@@ -32,7 +32,7 @@ var files = [
     configPropertyName: 'css_theme_hash'
   },
   {
-    file: 'dist/js/bootstrap.min.js',
+    file: 'dist/js_/bootstrap.min.js_',
     configPropertyName: 'js_hash'
   }
 ];

@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Gujarati [gu]
 //! author : Kaushik Thanki : https://github.com/Kaushik1987
 

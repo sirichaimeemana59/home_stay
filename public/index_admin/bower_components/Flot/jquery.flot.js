@@ -5,7 +5,7 @@ Licensed under the MIT license.
 
 */
 
-// first an inline dependency, jquery.colorhelpers.js, we inline it here
+// first an inline dependency, jquery.colorhelpers.js_, we inline it here
 // for convenience
 
 /* Plugin for jQuery for working with colors.
@@ -1737,7 +1737,7 @@ Licensed under the MIT license.
             }
 
             // Flot supports base-10 axes; any other mode else is handled by a plug-in,
-            // like flot.time.js.
+            // like flot.time.js_.
 
             if (!axis.tickGenerator) {
 
@@ -2010,7 +2010,7 @@ Licensed under the MIT license.
                             ctx.lineTo(xrange.to + subPixel, yrange.to);
                         } else {
                             ctx.moveTo(xrange.from, yrange.to + subPixel);
-                            ctx.lineTo(xrange.to, yrange.to + subPixel);                            
+                            ctx.lineTo(xrange.to, yrange.to + subPixel);
                         }
                         ctx.stroke();
                     } else {
@@ -2525,9 +2525,9 @@ Licensed under the MIT license.
                 radius = series.points.radius,
                 symbol = series.points.symbol;
 
-            // If the user sets the line width to 0, we change it to a very 
+            // If the user sets the line width to 0, we change it to a very
             // small value. A line width of 0 seems to force the default of 1.
-            // Doing the conditional here allows the shadow setting to still be 
+            // Doing the conditional here allows the shadow setting to still be
             // optional even with a lineWidth of 0.
 
             if( lw == 0 )

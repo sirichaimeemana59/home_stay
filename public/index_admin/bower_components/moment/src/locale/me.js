@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Montenegrin [me]
 //! author : Miodrag Nikač <miodrag@restartit.me> : https://github.com/miodragnikac
 

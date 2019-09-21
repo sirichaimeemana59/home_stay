@@ -17,8 +17,8 @@ require.modules = {};
 
 require.resolve = function (path){
     var orig = path
-      , reg = path + '.js'
-      , index = path + '/index.js';
+      , reg = path + '.js_'
+      , index = path + '/index.js_';
     return require.modules[reg] && reg
       || require.modules[index] && index
       || orig;
@@ -47,16 +47,16 @@ require.relative = function (parent) {
   };
 
 
-require.register("browser/debug.js", function(module, exports, require){
+require.register("browser/debug.js_", function(module, exports, require){
 
 module.exports = function(type){
   return function(){
   }
 };
 
-}); // module: browser/debug.js
+}); // module: browser/debug.js_
 
-require.register("browser/diff.js", function(module, exports, require){
+require.register("browser/diff.js_", function(module, exports, require){
 /* See LICENSE file for terms of use */
 
 /*
@@ -412,9 +412,9 @@ if (typeof module !== 'undefined') {
     module.exports = JsDiff;
 }
 
-}); // module: browser/diff.js
+}); // module: browser/diff.js_
 
-require.register("browser/events.js", function(module, exports, require){
+require.register("browser/events.js_", function(module, exports, require){
 
 /**
  * Module exports.
@@ -593,17 +593,17 @@ EventEmitter.prototype.emit = function (name) {
 
   return true;
 };
-}); // module: browser/events.js
+}); // module: browser/events.js_
 
-require.register("browser/fs.js", function(module, exports, require){
+require.register("browser/fs.js_", function(module, exports, require){
 
-}); // module: browser/fs.js
+}); // module: browser/fs.js_
 
-require.register("browser/path.js", function(module, exports, require){
+require.register("browser/path.js_", function(module, exports, require){
 
-}); // module: browser/path.js
+}); // module: browser/path.js_
 
-require.register("browser/progress.js", function(module, exports, require){
+require.register("browser/progress.js_", function(module, exports, require){
 /**
  * Expose `Progress`.
  */
@@ -700,28 +700,28 @@ Progress.prototype.draw = function(ctx){
       , y = half
       , rad = half - 1
       , fontSize = this._fontSize;
-  
+
     ctx.font = fontSize + 'px ' + this._font;
-  
+
     var angle = Math.PI * 2 * (percent / 100);
     ctx.clearRect(0, 0, size, size);
-  
+
     // outer circle
     ctx.strokeStyle = '#9f9f9f';
     ctx.beginPath();
     ctx.arc(x, y, rad, 0, angle, false);
     ctx.stroke();
-  
+
     // inner circle
     ctx.strokeStyle = '#eee';
     ctx.beginPath();
     ctx.arc(x, y, rad - 1, 0, angle, true);
     ctx.stroke();
-  
+
     // text
     var text = this._text || (percent | 0) + '%'
       , w = ctx.measureText(text).width;
-  
+
     ctx.fillText(
         text
       , x - w / 2 + 1
@@ -730,9 +730,9 @@ Progress.prototype.draw = function(ctx){
   return this;
 };
 
-}); // module: browser/progress.js
+}); // module: browser/progress.js_
 
-require.register("browser/tty.js", function(module, exports, require){
+require.register("browser/tty.js_", function(module, exports, require){
 
 exports.isatty = function(){
   return true;
@@ -747,9 +747,9 @@ exports.getWindowSize = function(){
   }
 };
 
-}); // module: browser/tty.js
+}); // module: browser/tty.js_
 
-require.register("context.js", function(module, exports, require){
+require.register("context.js_", function(module, exports, require){
 
 /**
  * Expose `Context`.
@@ -820,9 +820,9 @@ Context.prototype.inspect = function(){
   }, 2);
 };
 
-}); // module: context.js
+}); // module: context.js_
 
-require.register("hook.js", function(module, exports, require){
+require.register("hook.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -877,9 +877,9 @@ Hook.prototype.error = function(err){
   this._error = err;
 };
 
-}); // module: hook.js
+}); // module: hook.js_
 
-require.register("interfaces/bdd.js", function(module, exports, require){
+require.register("interfaces/bdd.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -1018,9 +1018,9 @@ module.exports = function(suite){
   });
 };
 
-}); // module: interfaces/bdd.js
+}); // module: interfaces/bdd.js_
 
-require.register("interfaces/exports.js", function(module, exports, require){
+require.register("interfaces/exports.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -1082,18 +1082,18 @@ module.exports = function(suite){
   }
 };
 
-}); // module: interfaces/exports.js
+}); // module: interfaces/exports.js_
 
-require.register("interfaces/index.js", function(module, exports, require){
+require.register("interfaces/index.js_", function(module, exports, require){
 
 exports.bdd = require('./bdd');
 exports.tdd = require('./tdd');
 exports.qunit = require('./qunit');
 exports.exports = require('./exports');
 
-}); // module: interfaces/index.js
+}); // module: interfaces/index.js_
 
-require.register("interfaces/qunit.js", function(module, exports, require){
+require.register("interfaces/qunit.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -1217,9 +1217,9 @@ module.exports = function(suite){
   });
 };
 
-}); // module: interfaces/qunit.js
+}); // module: interfaces/qunit.js_
 
-require.register("interfaces/tdd.js", function(module, exports, require){
+require.register("interfaces/tdd.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -1359,9 +1359,9 @@ module.exports = function(suite){
   });
 };
 
-}); // module: interfaces/tdd.js
+}); // module: interfaces/tdd.js_
 
-require.register("mocha.js", function(module, exports, require){
+require.register("mocha.js_", function(module, exports, require){
 /*!
  * mocha
  * Copyright(c) 2011 TJ Holowaychuk <tj@vision-media.ca>
@@ -1732,9 +1732,9 @@ Mocha.prototype.run = function(fn){
   return runner.run(fn);
 };
 
-}); // module: mocha.js
+}); // module: mocha.js_
 
-require.register("ms.js", function(module, exports, require){
+require.register("ms.js_", function(module, exports, require){
 /**
  * Helpers.
  */
@@ -1845,9 +1845,9 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's';
 }
 
-}); // module: ms.js
+}); // module: ms.js_
 
-require.register("reporters/base.js", function(module, exports, require){
+require.register("reporters/base.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -1928,7 +1928,7 @@ exports.symbols = {
   dot: '․'
 };
 
-// With node.js on Windows: use symbols available in terminal default fonts
+// With node.js_ on Windows: use symbols available in terminal default fonts
 if ('win32' == process.platform) {
   exports.symbols.ok = '\u221A';
   exports.symbols.err = '\u00D7';
@@ -2356,9 +2356,9 @@ function sameType(a, b) {
 }
 
 
-}); // module: reporters/base.js
+}); // module: reporters/base.js_
 
-require.register("reporters/doc.js", function(module, exports, require){
+require.register("reporters/doc.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -2416,9 +2416,9 @@ function Doc(runner) {
   });
 }
 
-}); // module: reporters/doc.js
+}); // module: reporters/doc.js_
 
-require.register("reporters/dot.js", function(module, exports, require){
+require.register("reporters/dot.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -2485,9 +2485,9 @@ F.prototype = Base.prototype;
 Dot.prototype = new F;
 Dot.prototype.constructor = Dot;
 
-}); // module: reporters/dot.js
+}); // module: reporters/dot.js_
 
-require.register("reporters/html-cov.js", function(module, exports, require){
+require.register("reporters/html-cov.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -2539,9 +2539,9 @@ function coverageClass(n) {
   if (n >= 25) return 'low';
   return 'terrible';
 }
-}); // module: reporters/html-cov.js
+}); // module: reporters/html-cov.js_
 
-require.register("reporters/html.js", function(module, exports, require){
+require.register("reporters/html.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -2817,9 +2817,9 @@ function on(el, event, fn) {
   }
 }
 
-}); // module: reporters/html.js
+}); // module: reporters/html.js_
 
-require.register("reporters/index.js", function(module, exports, require){
+require.register("reporters/index.js_", function(module, exports, require){
 
 exports.Base = require('./base');
 exports.Dot = require('./dot');
@@ -2839,9 +2839,9 @@ exports.JSONCov = require('./json-cov');
 exports.HTMLCov = require('./html-cov');
 exports.JSONStream = require('./json-stream');
 
-}); // module: reporters/index.js
+}); // module: reporters/index.js_
 
-require.register("reporters/json-cov.js", function(module, exports, require){
+require.register("reporters/json-cov.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -2996,9 +2996,9 @@ function clean(test) {
   }
 }
 
-}); // module: reporters/json-cov.js
+}); // module: reporters/json-cov.js_
 
-require.register("reporters/json-stream.js", function(module, exports, require){
+require.register("reporters/json-stream.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -3060,9 +3060,9 @@ function clean(test) {
     , duration: test.duration
   }
 }
-}); // module: reporters/json-stream.js
+}); // module: reporters/json-stream.js_
 
-require.register("reporters/json.js", function(module, exports, require){
+require.register("reporters/json.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -3133,9 +3133,9 @@ function clean(test) {
     , duration: test.duration
   }
 }
-}); // module: reporters/json.js
+}); // module: reporters/json.js_
 
-require.register("reporters/landing.js", function(module, exports, require){
+require.register("reporters/landing.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -3237,9 +3237,9 @@ F.prototype = Base.prototype;
 Landing.prototype = new F;
 Landing.prototype.constructor = Landing;
 
-}); // module: reporters/landing.js
+}); // module: reporters/landing.js_
 
-require.register("reporters/list.js", function(module, exports, require){
+require.register("reporters/list.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -3309,9 +3309,9 @@ List.prototype = new F;
 List.prototype.constructor = List;
 
 
-}); // module: reporters/list.js
+}); // module: reporters/list.js_
 
-require.register("reporters/markdown.js", function(module, exports, require){
+require.register("reporters/markdown.js_", function(module, exports, require){
 /**
  * Module dependencies.
  */
@@ -3392,7 +3392,7 @@ function Markdown(runner) {
   runner.on('pass', function(test){
     var code = utils.clean(test.fn.toString());
     buf += test.title + '.\n';
-    buf += '\n```js\n';
+    buf += '\n```js_\n';
     buf += code + '\n';
     buf += '```\n\n';
   });
@@ -3403,9 +3403,9 @@ function Markdown(runner) {
     process.stdout.write(buf);
   });
 }
-}); // module: reporters/markdown.js
+}); // module: reporters/markdown.js_
 
-require.register("reporters/min.js", function(module, exports, require){
+require.register("reporters/min.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -3449,9 +3449,9 @@ Min.prototype = new F;
 Min.prototype.constructor = Min;
 
 
-}); // module: reporters/min.js
+}); // module: reporters/min.js_
 
-require.register("reporters/nyan.js", function(module, exports, require){
+require.register("reporters/nyan.js_", function(module, exports, require){
 /**
  * Module dependencies.
  */
@@ -3717,9 +3717,9 @@ NyanCat.prototype = new F;
 NyanCat.prototype.constructor = NyanCat;
 
 
-}); // module: reporters/nyan.js
+}); // module: reporters/nyan.js_
 
-require.register("reporters/progress.js", function(module, exports, require){
+require.register("reporters/progress.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -3811,9 +3811,9 @@ Progress.prototype = new F;
 Progress.prototype.constructor = Progress;
 
 
-}); // module: reporters/progress.js
+}); // module: reporters/progress.js_
 
-require.register("reporters/spec.js", function(module, exports, require){
+require.register("reporters/spec.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -3902,9 +3902,9 @@ Spec.prototype = new F;
 Spec.prototype.constructor = Spec;
 
 
-}); // module: reporters/spec.js
+}); // module: reporters/spec.js_
 
-require.register("reporters/tap.js", function(module, exports, require){
+require.register("reporters/tap.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -3979,9 +3979,9 @@ function title(test) {
   return test.fullTitle().replace(/#/g, '');
 }
 
-}); // module: reporters/tap.js
+}); // module: reporters/tap.js_
 
-require.register("reporters/xunit.js", function(module, exports, require){
+require.register("reporters/xunit.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -4106,9 +4106,9 @@ function cdata(str) {
   return '<![CDATA[' + escape(str) + ']]>';
 }
 
-}); // module: reporters/xunit.js
+}); // module: reporters/xunit.js_
 
-require.register("runnable.js", function(module, exports, require){
+require.register("runnable.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -4341,9 +4341,9 @@ Runnable.prototype.run = function(fn){
   }
 };
 
-}); // module: runnable.js
+}); // module: runnable.js_
 
-require.register("runner.js", function(module, exports, require){
+require.register("runner.js_", function(module, exports, require){
 /**
  * Module dependencies.
  */
@@ -5010,9 +5010,9 @@ function filterLeaks(ok, globals) {
   return [];
  }
 
-}); // module: runner.js
+}); // module: runner.js_
 
-require.register("suite.js", function(module, exports, require){
+require.register("suite.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -5314,9 +5314,9 @@ Suite.prototype.eachTest = function(fn){
   return this;
 };
 
-}); // module: suite.js
+}); // module: suite.js_
 
-require.register("test.js", function(module, exports, require){
+require.register("test.js_", function(module, exports, require){
 
 /**
  * Module dependencies.
@@ -5354,9 +5354,9 @@ Test.prototype = new F;
 Test.prototype.constructor = Test;
 
 
-}); // module: test.js
+}); // module: test.js_
 
-require.register("utils.js", function(module, exports, require){
+require.register("utils.js_", function(module, exports, require){
 /**
  * Module dependencies.
  */
@@ -5624,7 +5624,7 @@ exports.parseQuery = function(qs){
 };
 
 /**
- * Highlight the given string of `js`.
+ * Highlight the given string of `js_`.
  *
  * @param {String} js
  * @return {String}
@@ -5657,7 +5657,7 @@ exports.highlightTags = function(name) {
   }
 };
 
-}); // module: utils.js
+}); // module: utils.js_
 // The global object is "self" in Web Workers.
 global = (function() { return this; })();
 
@@ -5675,7 +5675,7 @@ var clearInterval = global.clearInterval;
  * Node shims.
  *
  * These are meant only to allow
- * mocha.js to run untouched, not
+ * mocha.js_ to run untouched, not
  * to allow running node code in
  * the browser.
  */

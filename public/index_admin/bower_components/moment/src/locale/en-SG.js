@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : English (Singapore) [en-SG]
 //! author : Matthew Castrillon-Madrigal : https://github.com/techdimension
 

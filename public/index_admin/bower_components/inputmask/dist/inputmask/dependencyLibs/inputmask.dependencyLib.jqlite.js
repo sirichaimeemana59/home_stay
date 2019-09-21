@@ -1,5 +1,5 @@
 /*!
-* dependencyLibs/inputmask.dependencyLib.jqlite.js
+* dependencyLibs/inputmask.dependencyLib.jqlite.js_
 * https://github.com/RobinHerbots/Inputmask
 * Copyright (c) 2010 - 2017 Robin Herbots
 * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
@@ -32,11 +32,11 @@
         return "object" === type(obj) && !obj.nodeType && !isWindow(obj) && !(obj.constructor && !class2type.hasOwnProperty.call(obj.constructor.prototype, "isPrototypeOf"));
     }, $.extend = function() {
         var options, name, src, copy, copyIsArray, clone, target = arguments[0] || {}, i = 1, length = arguments.length, deep = !1;
-        for ("boolean" == typeof target && (deep = target, target = arguments[i] || {}, 
-        i++), "object" == typeof target || $.isFunction(target) || (target = {}), i === length && (target = this, 
-        i--); i < length; i++) if (null != (options = arguments[i])) for (name in options) src = target[name], 
-        target !== (copy = options[name]) && (deep && copy && ($.isPlainObject(copy) || (copyIsArray = $.isArray(copy))) ? (copyIsArray ? (copyIsArray = !1, 
-        clone = src && $.isArray(src) ? src : []) : clone = src && $.isPlainObject(src) ? src : {}, 
+        for ("boolean" == typeof target && (deep = target, target = arguments[i] || {},
+        i++), "object" == typeof target || $.isFunction(target) || (target = {}), i === length && (target = this,
+        i--); i < length; i++) if (null != (options = arguments[i])) for (name in options) src = target[name],
+        target !== (copy = options[name]) && (deep && copy && ($.isPlainObject(copy) || (copyIsArray = $.isArray(copy))) ? (copyIsArray ? (copyIsArray = !1,
+        clone = src && $.isArray(src) ? src : []) : clone = src && $.isPlainObject(src) ? src : {},
         target[name] = $.extend(deep, clone, copy)) : void 0 !== copy && (target[name] = copy));
         return target;
     }, $.each = function(obj, callback) {
@@ -56,7 +56,7 @@
             detail: void 0
         };
         var evt = document.createEvent("CustomEvent");
-        return evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail), 
+        return evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail),
         evt;
     }, $.Event.prototype = window.Event.prototype, $;
 });

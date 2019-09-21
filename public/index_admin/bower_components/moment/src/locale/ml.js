@@ -1,4 +1,4 @@
-//! moment.js locale configuration
+//! moment.js_ locale configuration
 //! locale : Malayalam [ml]
 //! author : Floyd Pink : https://github.com/floydpink
 
