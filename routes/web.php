@@ -37,3 +37,17 @@ Route::post('root/admin/select/editSubDis','SuperAdmin\PropertyController@editSu
 Route::get('/super_admin/list_property/edit/{id?}','SuperAdmin\PropertyController@edit');
 Route::post('/super_admin/list_property/update','SuperAdmin\PropertyController@update');
 Route::post('/super_admin/list_property/delete','SuperAdmin\PropertyController@destroy');
+
+//Login is Admin
+Route::get('/login_is_admin/{id?}','Is_admin\Is_adminController@index_ADMIN');
+Route::get('/home_property','Is_admin\Is_adminController@index');
+
+//admin home stay
+Route::any('/admin_home_stay','Admin_home\AdminhomeController@index');
+Route::get('/admin_home_stay/create/form','Admin_home\AdminhomeController@form');
+Route::post('/admin_home_stay/create','Admin_home\AdminhomeController@create');
+Route::post('/admin_home_stay/view','Admin_home\AdminhomeController@show');
+Route::get('/admin_home_stay/edit/{id?}','Admin_home\AdminhomeController@edit');
+Route::post('/admin_home_stay/update','Admin_home\AdminhomeController@update');
+Route::post('/admin_home_stay/delete','Admin_home\AdminhomeController@destroy');
+Route::post('/admin_home_stay/delete_room','Admin_home\AdminhomeController@delete_room');

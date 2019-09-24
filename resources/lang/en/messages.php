@@ -13,6 +13,8 @@ return[
     'number'=>'Number',
     'delete'=>'Delete',
     'login_admin'=>'Login Is Admin',
+    'logout'=>'Logout',
+    'type'=>'Type',
     'login' =>[
         'login' => 'Login',
         'user' => 'UserName',
@@ -86,5 +88,21 @@ return[
         'banner' => 'Property logo picture',
         'management_state' => 'Management state',
         'project_code' => 'Project code',
-    ],
+    ],'home_stay'=>[
+        'add_home'=>'Add Home Stay',
+        'home_stay'=>'Home Stay',
+        'name'=>'Name',
+        'add_room'=>'Add Room',
+    ], 'delete_alert'=>[
+        'delete' => 'Delete',
+        'sure' => 'Are you sure?',
+        'text'=>'Are you sure to delete the data?',
+        'success'=>'Delete! Success',
+        'error'=>'You are cancel delete data!',
+    ],'room_stay'=>[
+        'type'=>'Room Type',
+        'amount'=>'Amount',
+        'person'=>'Person',
+        'room'=>'Room'
+    ]
 ];

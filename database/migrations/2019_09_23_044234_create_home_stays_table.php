@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePropertyHomeStaysTable extends Migration
+class CreateHomeStaysTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,13 @@ class CreatePropertyHomeStaysTable extends Migration
      */
     public function up()
     {
-        Schema::create('property_home_stays', function (Blueprint $table) {
+        Schema::create('home_stays', function (Blueprint $table) {
             $table->uuid('id');
+            $table->uuid('property_id')->nullable();
             $table->text('name_th')->nullable();
             $table->text('name_en')->nullable();
-            $table->integer('province_id')->nullable();
-            $table->integer('distric_id')->nullable();
-            $table->integer('sub_dis')->nullable();
-            $table->integer('code')->nullable();
-            $table->text('address')->nullable();
             $table->text('phone')->nullable();
             $table->text('owner')->nullable();
-            $table->text('email')->nullable();
             $table->text('location')->nullable();
             $table->timestamps();
         });
@@ -37,6 +32,6 @@ class CreatePropertyHomeStaysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('property__home__stays');
+        Schema::dropIfExists('home_stays');
     }
 }

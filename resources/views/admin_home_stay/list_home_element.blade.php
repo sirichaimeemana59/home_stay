@@ -34,7 +34,7 @@
                 <tr>
                     <th>{!! trans('messages.number') !!}</th>
                     <th>{!! trans('messages.property.name') !!}</th>
-                    <th>{!! trans('messages.property.mail') !!}</th>
+{{--                    <th>{!! trans('messages.property.mail') !!}</th>--}}
                     <th>{!! trans('messages.property.owner') !!}</th>
                     <th>{!! trans('messages.property.phone') !!}</th>
                     <th>{!! trans('messages.action') !!}</th>
@@ -46,7 +46,7 @@
                         <tr>
                             <td>{!! $key+1 !!}</td>
                             <td>{!! $row{'name_'.Session::get('locale')} !!}</td>
-                            <td>{!! $row->email !!}</td>
+{{--                            <td>{!! $row->email !!}</td>--}}
                             <td>{!! $row->owner !!} </td>
                             <td>{!! $row->phone !!}</td>
                             <td>
@@ -57,7 +57,7 @@
                                         <li><a href="#" class="view" data-id="{!! $row->id !!}">
                                                 <i class="fa fa-eye"></i> {!! trans('messages.view') !!}
                                             </a>
-                                        <li><a href="{!! url('super_admin/list_property/edit/'.$row->id) !!}" data-id="{!! $row->id !!}">
+                                        <li><a href="{!! url('/admin_home_stay/edit/'.$row->id) !!}" data-id="{!! $row->id !!}">
                                                 <i class="fa fa-edit"></i> {!! trans('messages.edit') !!}
                                             </a>
                                         </li>
@@ -65,10 +65,10 @@
                                                 <i class="fa fa-trash-o"></i> {!! trans('messages.delete') !!}
                                             </a>
                                         </li>
-                                        <li><a href="{!! url('/login_is_admin/'.$row->id) !!}" data-id="{!! $row->id !!}">
-                                                <i class="fa fa-unlock-alt"></i> {!! trans('messages.login_admin') !!}
-                                            </a>
-                                        </li>
+{{--                                        <li><a href="{!! url('/login_is_admin/'.$row->id) !!}" data-id="{!! $row->id !!}">--}}
+{{--                                                <i class="fa fa-unlock-alt"></i> {!! trans('messages.login_admin') !!}--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
                                     </ul>
                                 </div>
                             </td>
