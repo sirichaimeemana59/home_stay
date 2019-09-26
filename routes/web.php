@@ -51,3 +51,11 @@ Route::get('/admin_home_stay/edit/{id?}','Admin_home\AdminhomeController@edit');
 Route::post('/admin_home_stay/update','Admin_home\AdminhomeController@update');
 Route::post('/admin_home_stay/delete','Admin_home\AdminhomeController@destroy');
 Route::post('/admin_home_stay/delete_room','Admin_home\AdminhomeController@delete_room');
+
+//Travel
+Route::any('/super_admin/list_travel','travel\TravelController@index');
+Route::get('/super_admin/list_travel/form_create','travel\TravelController@create');
+Route::post('/super_admin/list_travel/add_travel','travel\TravelController@store');
+Route::get('/super_admin/list_travel/form_edit/{id?}','travel\TravelController@edit');
+Route::post('/super_admin/list_travel/update','travel\TravelController@update');
+Route::post('/super_admin/list_travel/delete_photo','travel\TravelController@delete_photo');

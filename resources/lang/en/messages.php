@@ -35,6 +35,8 @@ return[
         'distric'=>'District',
         'sub_dis'=>'Subdistrict',
         'code'=>'Post Code',
+        'list'=>'List Property',
+        'edit'=>'Edit Property',
     ],
     'AboutProp' => [
         'page_about_head' => 'About Property',
@@ -103,6 +105,19 @@ return[
         'type'=>'Room Type',
         'amount'=>'Amount',
         'person'=>'Person',
-        'room'=>'Room'
-    ]
+        'room'=>'Room',
+        'detail'=>'Detail',
+        'price'=>'Price',
+        'list'=>'List Home Stay',
+        'add'=>'Add Home Stay',
+        'edit'=>'Edit Home Stay',
+    ],'travel'=>[
+        'travel'=>'Attractions Travel',
+        'list'=>'List  Attractions Travel',
+        'add'=>'Add  Attractions Travel',
+        'edit'=>'Edit  Attractions Travel',
+        'photo'=>'Photo',
+        'detail_en'=>'Detail [EN]',
+        'detail_th'=>'Detail [TH]',
+    ],
 ];

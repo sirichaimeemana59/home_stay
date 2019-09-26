@@ -1,5 +1,21 @@
 @extends('home_user.home_user')
 @section('content')
+    <div class="nav-tabs-custom">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel-body">
+                    <a href="{!! url('/super_admin/list_property') !!}"> <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                            {!! trans('messages.property.list') !!}
+                        </button></a>
+                    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                    <button type="button" class="btn btn-primary disabled" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                        {!! trans('messages.property.edit') !!}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="nav-tabs-custom panel-body">
         <div class="row panel-body">
             <div class="col-lg-12">

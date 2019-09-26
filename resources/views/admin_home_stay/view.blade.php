@@ -34,22 +34,25 @@
 </div>
 
 <div class="form-group row">
-    <lable class="col-sm-2 control-label">{!! trans('messages.room_stay.room') !!}</lable>
+    <lable class="col-sm-2 control-label"><h1>{!! trans('messages.room_stay.room') !!}</h1></lable>
 <div class="col-sm-12">
     <table class="table itemTables" style="width: 100%">
         <tr>
-            <th ></th>
+            <th>{!! trans('messages.number') !!}</th>
             <th>{!! trans('messages.room_stay.type') !!}</th>
             <th>{!! trans('messages.room_stay.amount') !!}</th>
             {{--                            <th>{!! trans('messages.room_stay.detail_th') !!}</th>--}}
-            {{--                            <th>{!! trans('messages.room_stay.detail_en') !!}</th>--}}
+            <th>{!! trans('messages.room_stay.detail') !!}</th>
+            <th>{!! trans('messages.room_stay.price') !!}</th>
 {{--            <th>{!! trans('messages.action') !!}</th>--}}
         </tr>
         @foreach($home->join_transection as $key => $row)
             <tr>
-                <td></td>
+                <td>{!! $key+1 !!}</td>
                 <td>{!! $row->type_id !!}</td>
                 <td>{!! $row->amount !!}</td>
+                <td>{!! $row->detail !!}</td>
+                <td>{!! $row->price !!}</td>
             </tr>
         @endforeach
     </table>

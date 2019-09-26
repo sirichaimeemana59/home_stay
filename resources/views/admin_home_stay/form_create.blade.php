@@ -3,6 +3,22 @@
     <div class="nav-tabs-custom">
         <div class="row">
             <div class="col-lg-12">
+                <div class="panel-body">
+                    <a href="{!! url(('/admin_home_stay')) !!}"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                            {!! trans('messages.room_stay.list') !!}
+                        </button></a>
+                    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                    <button type="button" class="btn btn-primary disabled" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                        {!! trans('messages.room_stay.add') !!}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-tabs-custom">
+        <div class="row">
+            <div class="col-lg-12">
                 <div class="panel-heading">
                     <h3 class="panel-title">{!! trans('messages.home_stay.home_stay') !!}</h3>
                 </div>
@@ -28,7 +44,7 @@
 
                         <lable class="col-sm-2 control-label">{!! trans('messages.property.phone') !!}</lable>
                         <div class="col-sm-4">
-                            {!! Form::text('phone',null,array('class'=>'form-control','num','placeholder'=>trans('messages.property.phone'),'required')) !!}
+                            {!! Form::text('phone',null,array('class'=>'form-control num','placeholder'=>trans('messages.property.phone'),'required')) !!}
                         </div>
                     </div>
                     <div class="form-group row">
@@ -86,7 +102,8 @@
                                 <th>{!! trans('messages.room_stay.type') !!}</th>
                                 <th>{!! trans('messages.room_stay.amount') !!}</th>
                                 {{--                            <th>{!! trans('messages.room_stay.detail_th') !!}</th>--}}
-                                {{--                            <th>{!! trans('messages.room_stay.detail_en') !!}</th>--}}
+                                <th>{!! trans('messages.room_stay.detail') !!}</th>
+                                <th>{!! trans('messages.room_stay.price') !!}</th>
                                 <th>{!! trans('messages.action') !!}</th>
                             </tr>
                         </table>
@@ -159,13 +176,26 @@
                         '<tr class="itemRow">',
                         '<td></td>',
                         '<td style="text-align: left; width:300px;">'+type+'</td>',
-                        '<td><input type="text" class="amount form-control" name=data['+time+'][amount]></td>',
+                        '<td><input type="text" class="num form-control" name=data['+time+'][amount]></td>',
                         // '<td><input type="text" class="amount form-control" name=data['+time+'][detail_th] required></td>',
-                        // '<td><input type="text" class="amount form-control" name=data['+time+'][detail_en]></td>',
+                        '<td><input type="text" class="form-control" name=data['+time+'][detail]></td>',
+                        '<td><input type="text" class="form-control num" name=data['+time+'][price]></td>',
                         '<td><a class="btn btn-danger delete-subject"><i class="fa fa-trash-o"></i></a></td>',
                         '</tr>'].join('');
                     $('.itemTables').append(data);
                 });
+            });
+
+            $('body').on("keypress",".num", function (e) {
+
+                var code = e.keyCode ? e.keyCode : e.which;
+
+                if (code > 57) {
+                    return false;
+                } else if (code < 48 && code != 8) {
+                    return false;
+                }
+
             });
 
         });

@@ -3,6 +3,19 @@
     <div class="nav-tabs-custom">
         <div class="row">
             <div class="col-lg-12">
+                <div class="panel-body">
+                    <button type="button" class="btn btn-primary disabled" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                        {!! trans('messages.property.list') !!}
+                    </button>
+                    {{--                    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>--}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-tabs-custom">
+        <div class="row">
+            <div class="col-lg-12">
                 <div class="panel-heading">
                     <h3 class="panel-title">{!! trans('messages.property.property') !!}</h3>
                 </div>

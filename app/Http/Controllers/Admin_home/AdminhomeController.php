@@ -18,6 +18,13 @@ class AdminhomeController extends Controller
     {
         $home_stay = new home_stay;
 
+        if($request->method('post')){
+            if($request->input('name')){
+                $home_stay = $home_stay->where('name_th','like',"%".$request->input('name')."%")
+                    ->orWhere('name_en','like',"%".$request->input('name')."%");
+            }
+        }
+
         $p_row = $home_stay->paginate(50);
 
         if($request->ajax()){
@@ -48,6 +55,8 @@ class AdminhomeController extends Controller
                 $room_home_stay_transection->type_id = $t['type_id'];
                 $room_home_stay_transection->home_stay_id = $home_stay->id;
                 $room_home_stay_transection->amount = $t['amount'];
+                $room_home_stay_transection->detail = $t['detail'];
+                $room_home_stay_transection->price = $t['price'];
                 $room_home_stay_transection->save();
             }
         }
@@ -96,6 +105,8 @@ class AdminhomeController extends Controller
                 $room_home_stay_transection->type_id = $y['type_id'];
                 $room_home_stay_transection->home_stay_id = $request->input('id_hidden');
                 $room_home_stay_transection->amount = $y['amount'];
+                $room_home_stay_transection->detail = $y['detail'];
+                $room_home_stay_transection->price = $y['price'];
                 $room_home_stay_transection->save();
             }
         }
@@ -107,6 +118,8 @@ class AdminhomeController extends Controller
                 $room_home_stay_transection->type_id = $t['type_id'];
                 $room_home_stay_transection->home_stay_id = $request->input('id_hidden');
                 $room_home_stay_transection->amount = $t['amount'];
+                $room_home_stay_transection->detail = $t['detail'];
+                $room_home_stay_transection->price = $t['price'];
                 $room_home_stay_transection->save();
             }
         }

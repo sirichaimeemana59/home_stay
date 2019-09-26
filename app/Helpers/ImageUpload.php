@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Helpers;
 
 use File;
@@ -28,10 +28,10 @@ class ImageUpload
         if (!File::exists($this->filePath)) {
             File::makeDirectory($this->filePath);
         }
-       
+
         $this->generateNewName();
     }
-    
+
 
     private function getExtension()
     {
@@ -77,7 +77,7 @@ class ImageUpload
     public function execute()
     {
         $this->upload();
-        $this->resize();
+//        $this->resize();
         $this->crop();
         return  $this->save();
     }
