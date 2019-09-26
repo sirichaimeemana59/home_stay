@@ -59,3 +59,4 @@ Route::post('/super_admin/list_travel/add_travel','travel\TravelController@store
 Route::get('/super_admin/list_travel/form_edit/{id?}','travel\TravelController@edit');
 Route::post('/super_admin/list_travel/update','travel\TravelController@update');
 Route::post('/super_admin/list_travel/delete_photo','travel\TravelController@delete_photo');
+Route::get('/super_admin/list_travel/{id?}','travel\TravelController@show');

@@ -50,7 +50,7 @@
                                     <button type="button" class="btn btn-success" data-toggle="dropdown">เลือกการจัดการ</button>
                                     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="true"> <span class="caret"></span> </button>
                                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                        <li><a href="#" class="view" data-id="{!! $row->id !!}">
+                                        <li><a href="{!! url('/super_admin/list_travel/'.$row->id) !!}"  data-id="{!! $row->id !!}">
                                                 <i class="fa fa-eye"></i> {!! trans('messages.view') !!}
                                             </a>
                                         <li><a href="{!! url('/super_admin/list_travel/form_edit/'.$row->id) !!}" data-id="{!! $row->id !!}">

@@ -119,5 +119,8 @@ return[
         'photo'=>'Photo',
         'detail_en'=>'Detail [EN]',
         'detail_th'=>'Detail [TH]',
+        'view'=>'View',
+        'name'=>'Name',
+        'detail'=>'Detail',
     ],
 ];

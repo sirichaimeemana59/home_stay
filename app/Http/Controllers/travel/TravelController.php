@@ -61,7 +61,9 @@ class TravelController extends Controller
 
     public function show($id)
     {
-        //
+        $travel = travel::find($id);
+
+        return view('travel.view')->with(compact('travel'));
     }
 
     public function edit($id)
