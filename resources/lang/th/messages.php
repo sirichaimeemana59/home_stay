@@ -37,6 +37,9 @@ return[
         'login_admin'=>'Login เป็น Admin',
         'list'=>'เพิ่มหมู่บ้าน',
         'edit'=>'แก้ไขหมู่บ้าน',
+        'account'=>'บัญชีผู้ดูแลหมู่บ้าน',
+        'pass'=>'รหัสผ่าน',
+        'name_admin'=>'ชื่อผู้ดูแลหมู่บ้าน',
     ],'AboutProp' => [
         'page_about_head'		=> 'เกี่ยวกับนิติบุคคล',
         'page_about_sub_head'	=> 'ข้อมูลเกี่ยวกับนิติบุคคลของคุณ',

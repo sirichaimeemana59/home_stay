@@ -5,10 +5,12 @@ namespace App\Http\Controllers\SuperAdmin;
 use App\company;
 use Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use App\Property_Home_Stay;
 use App\Districts;
 use App\Subdistricts;
 use App\Province;
+use App\User;
 
 class PropertyController extends Controller
 {
@@ -59,6 +61,14 @@ class PropertyController extends Controller
         $property->location = Request::input('location');
         $property->save();
 
+        $user = new User;
+        $user->email = Request::input('email_admin');
+        $user->password = Hash::make(Request::input('password'));
+        $user->name = Request::input('name_admin');
+        $user->role = 6;
+        $user->property_id = $property->id;
+        $user->save();
+
         return redirect('super_admin/list_property');
     }
 
@@ -89,7 +99,8 @@ class PropertyController extends Controller
     public function edit($id = null)
     {
         $property = Property_Home_Stay::find($id);
-
+        $user = User::where('property_id',$id)->first();
+//dd($user);
         $p = new Province;
         $provinces = $p->getProvince();
 
@@ -99,7 +110,7 @@ class PropertyController extends Controller
         $s = new Subdistricts;
         $subdistricts = $s->getSubdistricts();
 
-        return view('property.edit_property')->with(compact('property','provinces','districts','subdistricts'));
+        return view('property.edit_property')->with(compact('property','provinces','districts','subdistricts','user'));
     }
 
 
@@ -119,6 +130,25 @@ class PropertyController extends Controller
         $property->location = Request::input('location');
         $property->save();
         //dd($property);
+
+        if(!empty(Request::input('user_admin'))){
+            $user = User::find(Request::input('user_admin'));
+            $user->email = Request::input('email_admin');
+            $user->password = empty(Request::input('password'))?$user->password:Hash::make(Request::input('password'));
+            $user->name = Request::input('name_admin');
+            $user->role = 6;
+            $user->property_id = Request::input('property_id');
+            $user->save();
+        }else{
+            $user = new User;
+            $user->email = Request::input('email_admin');
+            $user->password = Hash::make(Request::input('password'));
+            $user->name = Request::input('name_admin');
+            $user->role = 6;
+            $user->property_id = Request::input('property_id');
+            $user->save();
+        }
+
 
         return redirect('super_admin/list_property');
 

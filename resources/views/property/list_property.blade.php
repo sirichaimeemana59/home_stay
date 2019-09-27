@@ -132,6 +132,25 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group row">
+                                    <lable class="col-sm-2 control-label">{!! trans('messages.property.name_admin') !!}</lable>
+                                    <div class="col-sm-4">
+                                        {!! Form::text('name_admin',null,array('class'=>'form-control','placeholder'=>trans('messages.property.name_admin'),'required')) !!}
+                                    </div>
+
+                                    <lable class="col-sm-2 control-label">{!! trans('messages.property.account') !!}</lable>
+                                    <div class="col-sm-4">
+                                        {!! Form::email('email_admin',null,array('class'=>'form-control','placeholder'=>trans('messages.property.mail'),'required')) !!}
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <lable class="col-sm-2 control-label">{!! trans('messages.property.pass') !!}</lable>
+                                    <div class="col-sm-4">
+                                        {!! Form::text('password',null,array('class'=>'form-control','placeholder'=>trans('messages.property.pass'),'required')) !!}
+                                    </div>
+                                </div>
+
                                 <div class="form-group row float-center" style="text-align: right; ">
                                     <div class="col-sm-12">
                                         <button class="btn-info btn-primary" id="add-store-btn" type="submit">{!! trans('messages.save') !!}</button>

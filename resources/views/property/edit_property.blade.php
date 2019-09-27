@@ -74,6 +74,9 @@
                 <input type="hidden" class="sub_dis" value="{!! $property['sub_dis'] !!}">
                 <input type="hidden" name="property_id" class="property_id" value="{!! $property['id'] !!}">
 
+                @if(!empty($user))
+                <input type="hidden" name="user_admin" value="{!! $user['id'] !!}">
+                @endif
 
             </div>
 
@@ -88,6 +91,39 @@
                 {!! Form::text('address',null,array('class'=>'form-control','placeholder'=>trans('messages.property.address'),'required')) !!}
             </div>
         </div>
+
+                @if(!empty($user))
+                <div class="form-group row">
+                    <lable class="col-sm-2 control-label">{!! trans('messages.property.name_admin') !!}</lable>
+                    <div class="col-sm-4">
+                        {!! Form::text('name_admin',$user->name,array('class'=>'form-control','placeholder'=>trans('messages.property.name_admin'),'required')) !!}
+                    </div>
+
+                    <lable class="col-sm-2 control-label">{!! trans('messages.property.account') !!}</lable>
+                    <div class="col-sm-4">
+                        {!! Form::email('email_admin',$user->email,array('class'=>'form-control','placeholder'=>trans('messages.property.mail'),'readonly')) !!}
+                    </div>
+                </div>
+                @else
+                    <div class="form-group row">
+                        <lable class="col-sm-2 control-label">{!! trans('messages.property.name_admin') !!}</lable>
+                        <div class="col-sm-4">
+                            {!! Form::text('name_admin',null,array('class'=>'form-control','placeholder'=>trans('messages.property.name_admin'),'required')) !!}
+                        </div>
+
+                        <lable class="col-sm-2 control-label">{!! trans('messages.property.account') !!}</lable>
+                        <div class="col-sm-4">
+                            {!! Form::email('email_admin',null,array('class'=>'form-control','placeholder'=>trans('messages.property.mail'),'required')) !!}
+                        </div>
+                    </div>
+                    @endif
+
+                <div class="form-group row">
+                    <lable class="col-sm-2 control-label">{!! trans('messages.property.pass') !!}</lable>
+                    <div class="col-sm-4">
+                        {!! Form::text('password',null,array('class'=>'form-control','placeholder'=>trans('messages.property.pass'),'required')) !!}
+                    </div>
+                </div>
 
         <div class="form-group row float-center" style="text-align: right; ">
             <div class="col-sm-12">

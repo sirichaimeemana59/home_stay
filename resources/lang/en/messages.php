@@ -37,6 +37,9 @@ return[
         'code'=>'Post Code',
         'list'=>'List Property',
         'edit'=>'Edit Property',
+        'account'=>'Account Admin',
+        'pass'=>'Password',
+        'name_admin'=>'Name Admin',
     ],
     'AboutProp' => [
         'page_about_head' => 'About Property',

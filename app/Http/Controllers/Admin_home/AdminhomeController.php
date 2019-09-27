@@ -25,6 +25,7 @@ class AdminhomeController extends Controller
             }
         }
 
+        $home_stay = $home_stay->where('property_id',Session::get('id_property'));
         $p_row = $home_stay->paginate(50);
 
         if($request->ajax()){
@@ -95,7 +96,7 @@ class AdminhomeController extends Controller
         $home_stay->phone = $request->input('phone');
         $home_stay->owner = $request->input('owner');
         $home_stay->location = $request->input('location');
-        //$home_stay->save();
+        $home_stay->save();
 
         if(!empty($request->input('data_'))){
             //dd($request->input('data_'));
