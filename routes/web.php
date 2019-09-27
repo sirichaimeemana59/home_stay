@@ -60,3 +60,14 @@ Route::get('/super_admin/list_travel/form_edit/{id?}','travel\TravelController@e
 Route::post('/super_admin/list_travel/update','travel\TravelController@update');
 Route::post('/super_admin/list_travel/delete_photo','travel\TravelController@delete_photo');
 Route::get('/super_admin/list_travel/{id?}','travel\TravelController@show');
+Route::post('/super_admin/list_travel/delete','travel\TravelController@destroy');
+
+//news
+Route::any('/super_admin/list_news','SuperAdmin\NewsController@index');
+Route::get('/super_admin/news/form_create','SuperAdmin\NewsController@create');
+Route::post('/super_admin/list_news/add_news','SuperAdmin\NewsController@store');
+Route::get('/super_admin/view_news/{id?}','SuperAdmin\NewsController@show');
+Route::get('/super_admin/list_news/form_edit/{id?}','SuperAdmin\NewsController@edit');
+Route::post('/super_admin/news/update','SuperAdmin\NewsController@update');
+Route::post('/super_admin/list_news/delete_photo','SuperAdmin\NewsController@delete_photo');
+Route::post('/super_admin/list_news/delete','SuperAdmin\NewsController@destroy');

@@ -122,5 +122,18 @@ return[
         'view'=>'View',
         'name'=>'Name',
         'detail'=>'Detail',
-    ],
+    ],'news'=>[
+        'news'=>'News',
+        'list'=>'List  News',
+        'add'=>'Add  News',
+        'edit'=>'Edit  News',
+        'photo'=>'Photo',
+        'detail_en'=>'Detail [EN]',
+        'detail_th'=>'Detail [TH]',
+        'view'=>'View',
+        'name'=>'Name',
+        'name_th'=>'Name [TH]',
+        'name_en'=>'Name [EN]',
+        'detail'=>'Detail',
+    ]
 ];

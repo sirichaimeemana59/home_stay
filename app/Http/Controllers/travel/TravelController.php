@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\travel;
 
+use App\new_transection;
+use App\news;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use ImageUploadAndResizer;
@@ -43,18 +45,21 @@ class TravelController extends Controller
         $travel->user_id = Auth::user()->id;
         $travel->save();
 
-        $file = $request->file('photo');
-        foreach ($file as $row){
-            $uploader_top = new ImageUploadAndResizer($row, 'images/photo');
-            //$uploader_top->width = 1920;
-            //$uploader_top->height = 800;
-            $fileNameToDatabase = $uploader_top->execute();
+        if(!empty($request->file('photo'))){
+            $file = $request->file('photo');
+            foreach ($file as $row){
+                $uploader_top = new ImageUploadAndResizer($row, 'images/photo');
+                //$uploader_top->width = 1920;
+                //$uploader_top->height = 800;
+                $fileNameToDatabase = $uploader_top->execute();
 
-            $tran = new travel_transection;
-            $tran->travel_id = $travel->id;
-            $tran->photo = $fileNameToDatabase;
-            $tran->save();
+                $tran = new travel_transection;
+                $tran->travel_id = $travel->id;
+                $tran->photo = $fileNameToDatabase;
+                $tran->save();
+            }
         }
+
 
         return redirect('/super_admin/list_travel');
     }
@@ -86,25 +91,31 @@ class TravelController extends Controller
         $travel->save();
         //dd($travel);
 
-        $file = $request->file('photo');
-        foreach ($file as $row){
-            $uploader_top = new ImageUploadAndResizer($row, 'images/photo');
-            //$uploader_top->width = 1920;
-            //$uploader_top->height = 800;
-            $fileNameToDatabase = $uploader_top->execute();
+        if(!empty($request->file('photo'))){
+            $file = $request->file('photo');
+            foreach ($file as $row){
+                $uploader_top = new ImageUploadAndResizer($row, 'images/photo');
+                //$uploader_top->width = 1920;
+                //$uploader_top->height = 800;
+                $fileNameToDatabase = $uploader_top->execute();
 
-            $tran = new travel_transection;
-            $tran->travel_id = $travel->id;
-            $tran->photo = $fileNameToDatabase;
-            $tran->save();
+                $tran = new travel_transection;
+                $tran->travel_id = $travel->id;
+                $tran->photo = $fileNameToDatabase;
+                $tran->save();
+            }
         }
+
 
         return redirect('/super_admin/list_travel');
     }
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $new = travel::find($request->input('id'));
+        $new->delete();
+
+        $tran =  travel_transection::where('travel_id',$new->id)->delete();
     }
 
     public  function delete_photo(Request $request){

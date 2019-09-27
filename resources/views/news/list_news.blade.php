@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                 <div class="panel-body">
                     <button type="button" class="btn btn-primary disabled" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-                        {!! trans('messages.travel.list') !!}
+                        {!! trans('messages.news.list') !!}
                     </button>
                     {{--                    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>--}}
                 </div>
@@ -17,14 +17,14 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{!! trans('messages.property.property') !!}</h3>
+                    <h3 class="panel-title">{!! trans('messages.news.news') !!}</h3>
                 </div>
 
                 <div class="panel-body search-form">
                     <form method="POST" id="search-form" action="#" accept-charset="UTF-8" class="form-horizontal">
                         <div class="row">
                             <div class="col-sm-3 block-input">
-                                <input class="form-control" size="25" placeholder="{!! trans('messages.property.name') !!}" name="name">
+                                <input class="form-control" size="25" placeholder="{!! trans('messages.news.name') !!}" name="name">
                             </div>
 
                             {{--<div class="col-sm-3 block-input">--}}
@@ -47,15 +47,15 @@
     <div class="nav-tabs-custom panel-body">
         <div class="row" style="margin: 5px;">
             <div class="col-sm-12 text-right">
-                <a href="{!! url('/super_admin/list_travel/form_create') !!}">
-                    <button class="btn btn-primary mt-2 mt-xl-0 text-right"><i class="fa fa-plus-circle"></i>  {!! trans('messages.travel.add') !!}</button>
+                <a href="{!! url('/super_admin/news/form_create') !!}">
+                    <button class="btn btn-primary mt-2 mt-xl-0 text-right"><i class="fa fa-plus-circle"></i>  {!! trans('messages.news.add') !!}</button>
                 </a>
                 <a href="#" target="_blank"><button class="btn btn-success mt-2 mt-xl-0 text-right"><i class="fa fa-file-text"></i>  {!! trans('messages.download') !!}</button></a>
             </div>
         </div>
         <div class="row panel-body">
             <div class="col-lg-12" id="landing-subject-list">
-                @include('travel.list_travel_element')
+                @include('news.list_news_element')
             </div>
         </div>
     </div>
@@ -73,31 +73,31 @@
                             <div class="form">
                                 {!! Form::model(null,array('url' => array('/super_admin/list_property/create'),'class'=>'form-horizontal create-store-form','id'=>'form_add','method'=>'post','enctype'=>'multipart/form-data')) !!}
                                 <div class="form-group row">
-                                    <lable class="col-sm-2 control-label">{!! trans('messages.property.name_th') !!}</lable>
+                                    <lable class="col-sm-2 control-label">{!! trans('messages.news.name_th') !!}</lable>
                                     <div class="col-sm-4">
-                                        {!! Form::text('name_th',null,array('class'=>'form-control','placeholder'=>trans('messages.property.name_th'),'required')) !!}
+                                        {!! Form::text('name_th',null,array('class'=>'form-control','placeholder'=>trans('messages.news.name_th'),'required')) !!}
                                     </div>
 
-                                    <lable class="col-sm-2 control-label">{!! trans('messages.property.name_en') !!}</lable>
+                                    <lable class="col-sm-2 control-label">{!! trans('messages.news.name_en') !!}</lable>
                                     <div class="col-sm-4">
-                                        {!! Form::text('name_en',null,array('class'=>'form-control','placeholder'=>trans('messages.property.name_en'),'required')) !!}
+                                        {!! Form::text('name_en',null,array('class'=>'form-control','placeholder'=>trans('messages.news.name_en'),'required')) !!}
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <lable class="col-sm-2 control-label">{!! trans('messages.property.owner') !!}</lable>
+                                    <lable class="col-sm-2 control-label">{!! trans('messages.news.owner') !!}</lable>
                                     <div class="col-sm-4">
-                                        {!! Form::text('owner',null,array('class'=>'form-control','placeholder'=>trans('messages.property.owner'),'required')) !!}
+                                        {!! Form::text('owner',null,array('class'=>'form-control','placeholder'=>trans('messages.news.owner'),'required')) !!}
                                     </div>
 
-                                    <lable class="col-sm-2 control-label">{!! trans('messages.property.phone') !!}</lable>
+                                    <lable class="col-sm-2 control-label">{!! trans('messages.news.phone') !!}</lable>
                                     <div class="col-sm-4">
-                                        {!! Form::text('phone',null,array('class'=>'form-control','num','placeholder'=>trans('messages.property.phone'),'required')) !!}
+                                        {!! Form::text('phone',null,array('class'=>'form-control','num','placeholder'=>trans('messages.news.phone'),'required')) !!}
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <lable class="col-sm-2 control-label">{!! trans('messages.property.mail') !!}</lable>
+                                    <lable class="col-sm-2 control-label">{!! trans('messages.news.mail') !!}</lable>
                                     <div class="col-sm-4">
-                                        {!! Form::email('email',null,array('class'=>'form-control','placeholder'=>trans('messages.property.mail'),'required')) !!}
+                                        {!! Form::email('email',null,array('class'=>'form-control','placeholder'=>trans('messages.news.mail'),'required')) !!}
                                     </div>
 
                                     <lable class="col-sm-2 control-label">{!! trans('messages.property.location') !!}</lable>
@@ -310,13 +310,13 @@
                 }).then((willDelete)=> {
                     if (willDelete) {
                         setTimeout(function() {
-                            $.post($('#root-url').val()+"/super_admin/list_travel/delete", {
+                            $.post($('#root-url').val()+"/super_admin/list_news/delete", {
                                 id: id
                             }, function(e) {
                                 swal("{!! trans('messages.delete_alert.success') !!}", {
                                     icon: "success",
                                 }).then(function(){
-                                    window.location.href =$('#root-url').val()+'/super_admin/list_travel'
+                                    window.location.href =$('#root-url').val()+'/super_admin/list_news'
                                 });
                             });
                         }, 50);
@@ -325,6 +325,7 @@
                     }
                 });
             });
+
 
             $('body').on("keypress",".num", function (e) {
 

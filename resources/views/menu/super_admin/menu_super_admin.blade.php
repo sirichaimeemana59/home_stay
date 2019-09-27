@@ -24,6 +24,14 @@
             {{--            </span>--}}
         </a>
     </li>
+    <li>
+        <a href="{!! url('/super_admin/list_news') !!}">
+            <i class="fa fa-th"></i> <span>{!! trans('messages.news.news') !!}</span>
+            {{--            <span class="pull-right-container">--}}
+            {{--              <small class="label pull-right bg-green">new</small>--}}
+            {{--            </span>--}}
+        </a>
+    </li>
     <li class="treeview">
         <a href="#">
             <i class="fa fa-pie-chart"></i>
