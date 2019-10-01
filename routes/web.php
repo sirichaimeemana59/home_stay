@@ -82,3 +82,4 @@ Route::get('/admin_property/list_home_stay_property/create/form','AdminProperty\
 Route::post('/admin_property/list_home_stay_property/create','AdminProperty\AdminController@create');
 Route::post('/admin_property/list_home_stay_property/update','AdminProperty\AdminController@update');
 Route::post('/admin_property/list_home_stay_property/delete_room','AdminProperty\AdminController@delete_room');
+Route::any('/admin_property/list_room_home_stay_property','AdminProperty\RoomhomestayController@index');

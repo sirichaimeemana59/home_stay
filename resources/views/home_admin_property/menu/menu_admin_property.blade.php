@@ -21,6 +21,14 @@
             </span>
             </a>
         </li>
+        <li class="active">
+            <a href="{!! url('/admin_property/list_room_home_stay_property') !!}">
+                <i class="fa fa-th"></i> <span>{!! trans('messages.room_stay.room') !!}</span>
+                <span class="pull-right-container">
+{{--              <small class="label pull-right bg-green">new</small>--}}
+            </span>
+            </a>
+        </li>
         <li class="treeview">
             <a href="#">
                 <i class="fa fa-pie-chart"></i>
