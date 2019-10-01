@@ -71,3 +71,14 @@ Route::get('/super_admin/list_news/form_edit/{id?}','SuperAdmin\NewsController@e
 Route::post('/super_admin/news/update','SuperAdmin\NewsController@update');
 Route::post('/super_admin/list_news/delete_photo','SuperAdmin\NewsController@delete_photo');
 Route::post('/super_admin/list_news/delete','SuperAdmin\NewsController@destroy');
+
+//Admin Property
+Route::get('/admin_property/dashboard','AdminProperty\AdminController@index');
+Route::any('/admin_property/list_home_stay_property','AdminProperty\AdminController@show_property');
+Route::get('/admin_property/edit_home_stay/{id?}','AdminProperty\AdminController@edit');
+Route::post('/admin_property/list_home_stay_property/view','AdminProperty\AdminController@show');
+Route::post('/admin_property/list_home_stay_property/delete','AdminProperty\AdminController@destroy');
+Route::get('/admin_property/list_home_stay_property/create/form','AdminProperty\AdminController@form');
+Route::post('/admin_property/list_home_stay_property/create','AdminProperty\AdminController@create');
+Route::post('/admin_property/list_home_stay_property/update','AdminProperty\AdminController@update');
+Route::post('/admin_property/list_home_stay_property/delete_room','AdminProperty\AdminController@delete_room');

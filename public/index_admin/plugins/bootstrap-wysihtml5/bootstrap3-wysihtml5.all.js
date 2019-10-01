@@ -5448,7 +5448,7 @@ wysihtml5.dom.getAsDom = (function() {
  * @param {Number} [levels] How many parents should the function check up from the current node (defaults to 50)
  * @return {null|Element} Returns the first element that matched the desiredNodeName(s)
  * @example
- *    var listElement = wysihtml5.dom.getParentElement(document.querySelector("li"), { nodeName: ["MENU", "UL", "OL"] });
+ *    var listElement = wysihtml5.dom.getParentElement(document.querySelector("li"), { nodeName: ["menu", "UL", "OL"] });
  *    // ... or ...
  *    var unorderedListElement = wysihtml5.dom.getParentElement(document.querySelector("li"), { nodeName: "UL" });
  *    // ... or ...

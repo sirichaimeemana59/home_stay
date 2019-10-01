@@ -32,6 +32,8 @@ class HomeController extends Controller
         //return view ('home_user.home_user');
         if( Auth::user()->role == 1){
             Redirect::to('/super_admin/dashboard')->send();
+        }else if(Auth::user()->role == 6){
+            Redirect::to('/admin_property/dashboard')->send();
         }
     }
 }
